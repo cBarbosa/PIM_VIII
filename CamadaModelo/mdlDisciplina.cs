@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.OleDb;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace PIM_VIII.Model
 
         public System.Data.OleDb.OleDbConnection GetDBConnection()
         {
-            return new OleDbConnection { ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\FRANCILUCIA\Desktop\FRANCI\dbPIM_VIII.accdb" };
+            return new OleDbConnection { ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionStringAccess"].ConnectionString.ToString() };
         }
 
         public void CloseDbConnection()

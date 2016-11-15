@@ -1,7 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PIM_VIII", "PIM_VIII\PIM_VIII.csproj", "{ED3D6100-23AE-4229-B7F7-9AEC561B8540}"
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "web", "PIM_VIII\web.csproj", "{ED3D6100-23AE-4229-B7F7-9AEC561B8540}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CamadaModelo", "CamadaModelo\CamadaModelo.csproj", "{E54EDCD0-21FB-454A-BAC5-24F1FA3A5C93}"
 EndProject
