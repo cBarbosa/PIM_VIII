@@ -129,7 +129,9 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <Content Include="App_Data\dbPIM_VIII.accdb" />
-    <Content Include="CadastrarDisciplina.aspx" />
+    <Content Include="Atendente\CadastrarAluno.aspx" />
+    <Content Include="Atendente\CreateAluno.aspx" />
+    <Content Include="Professor\CadastrarDisciplina.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -281,11 +283,25 @@
     <Compile Include="Account\RegisterExternalLogin.aspx.designer.cs">
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CadastrarDisciplina.aspx.cs">
+    <Compile Include="Atendente\CadastrarAluno.aspx.cs">
+      <DependentUpon>CadastrarAluno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Atendente\CadastrarAluno.aspx.designer.cs">
+      <DependentUpon>CadastrarAluno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Atendente\CreateAluno.aspx.cs">
+      <DependentUpon>CreateAluno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Atendente\CreateAluno.aspx.designer.cs">
+      <DependentUpon>CreateAluno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Professor\CadastrarDisciplina.aspx.cs">
       <DependentUpon>CadastrarDisciplina.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CadastrarDisciplina.aspx.designer.cs">
+    <Compile Include="Professor\CadastrarDisciplina.aspx.designer.cs">
       <DependentUpon>CadastrarDisciplina.aspx</DependentUpon>
     </Compile>
     <Compile Include="Contact.aspx.cs">

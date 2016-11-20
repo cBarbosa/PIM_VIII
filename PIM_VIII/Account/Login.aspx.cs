@@ -43,7 +43,7 @@ namespace PIM_VIII.Account
             {
                 if (Request.QueryString["ReturnUrl"] != null)
                     //Response.Redirect(HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]), true);
-                    FormsAuthentication.RedirectFromLoginPage(login1.UserName, login1.RememberMeSet);
+                    FormsAuthentication.RedirectFromLoginPage(usuario.Nome, login1.RememberMeSet);
                 else
                     Response.Redirect("~/About.aspx", true);
             }

@@ -62,8 +62,12 @@
                 <nav>
                     <ul id="menu">
                         <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About.aspx">Sobre</a></li>
-                        <li><a runat="server" href="~/Contact.aspx">Contato</a></li>
+                        <!-- atividades para atendente -->
+                        <li><a runat="server" href="~/Atendente/CadastrarAluno.aspx">Aluno</a></li>
+                        <li><a runat="server" href="~/Atendente/CadastrarProva.aspx">Prova</a></li>
+                        
+                        <!-- atividades para aluno -->
+                        <li><a runat="server" href="~/Atendente/CadastrarProva.aspx">Lista de Tarefas</a></li>
                     </ul>
                 </nav>
             </div>
