@@ -18,9 +18,11 @@
         </asp:DropDownList>
         <br />
     </div>
-    </p>
 
     <p align="center">
         <asp:Button ID="Button1" runat="server" Text="Inserir" OnClick="Button1_Click" />
     </p>
-</asp:Content>
+    <p align="center">
+        &nbsp;</p>
+    
+    </asp:Content>

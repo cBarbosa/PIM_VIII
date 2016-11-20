@@ -11,10 +11,11 @@ namespace PIM_VIII.Control
     {
         public static bool InsertDisciplina(Disciplina disciplina)
         {
+            /*
             var retorno = PIM_VIII.Model.mdlDisciplina.Insere(disciplina.Nome,
                 disciplina.IdCurso,
                 disciplina.IdAtividade);
-
+                */
             return false;
         }
     }

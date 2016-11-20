@@ -12,8 +12,10 @@ namespace PIM_VIII.Control
     {
         public static DataSet GetAllDataSetCurso()
         {
+            /*
             DataSet DataCurso = PIM_VIII.Model.mdlCurso.GetAll();
-            return DataCurso;
+            return DataCurso;*/
+            return null;
         }
     }
 }

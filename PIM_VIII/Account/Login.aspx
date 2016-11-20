@@ -7,7 +7,7 @@
     </hgroup>
     <section id="loginForm">
         <h2>Use a matrícula para fazer o login.</h2>
-        <asp:Login runat="server" ViewStateMode="Disabled" RenderOuterTable="false">
+        <asp:Login runat="server" ViewStateMode="Disabled" RenderOuterTable="false" ID="login1" DestinationPageUrl="~/Default.aspx" OnAuthenticate="login1_Authenticate" RememberMeSet="True">
             <LayoutTemplate>
                 <p class="validation-summary-errors">
                     <asp:Literal runat="server" ID="FailureText" />
@@ -27,21 +27,25 @@
                         </li>
                         <li>
                             <asp:CheckBox runat="server" ID="RememberMe" />
-                            <asp:Label runat="server" AssociatedControlID="RememberMe" CssClass="checkbox">Remember me?</asp:Label>
+                            <asp:Label runat="server" AssociatedControlID="RememberMe" CssClass="checkbox">Lembrar senha?</asp:Label>
                         </li>
                     </ol>
                     <asp:Button runat="server" CommandName="Login" Text="Logar" />
                 </fieldset>
             </LayoutTemplate>
         </asp:Login>
+        <!--
         <p>
             <asp:HyperLink runat="server" ID="RegisterHyperLink" ViewStateMode="Disabled">Register</asp:HyperLink>
             if you don't have an account.
         </p>
+        -->
     </section>
 
+    <!--
     <section id="socialLoginForm">
         <h2>Use another service to log in.</h2>
         <uc:OpenAuthProviders runat="server" ID="OpenAuthLogin" />
     </section>
+    -->
 </asp:Content>

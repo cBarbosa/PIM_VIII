@@ -1,0 +1,113 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.OleDb;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using PIM_VII.VO;
+
+namespace PIM_VIII.Model
+{
+    public class DisciplinaDAL : IConnection<PIM_VII.VO.Disciplina>
+    {
+        const string _TABLE = "tbl_disciplinas";
+        const string _SELECT_ALL = "SELECT * FROM tbl_disciplinas";
+        const string _SELECT_MAX = "SELECT MAX(ID_DISCIPLINA) FROM tbl_disciplinas";
+        const string _INSERT = "INSERT INTO tbl_disciplinas (ID_DISCIPLINA, DISCIPLINA, ID_CURSO, ID_ATIVIDADE) VALUES (?,?,?,?)";
+
+        private static OleDbConnection GetDBConnection()
+        {
+            try
+            {
+                return new OleDbConnection { ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionStringAccess"].ConnectionString.ToString() };
+            }
+            catch (OleDbException db)
+            {
+                throw new Exception(String.Format("Erro no banco de dados.\nErro: {0}", db.Message));
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(String.Format("Erro: '{0}'", ex.Message));
+            }
+        }
+
+        public void CloseDbConnection()
+        {
+            throw new NotImplementedException();
+        }
+
+        public static int GetMax()
+        {
+            int result = 0;
+            try
+            {
+                using (var conexao = GetDBConnection())
+                {
+                    using (OleDbCommand cmd = new OleDbCommand(_SELECT_MAX, conexao))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        conexao.Open();
+                        using (OleDbDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                reader.Read();
+                                result = reader.GetInt32(0);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception) { return -1; }
+
+            return ++result;
+        }
+
+        public static int Insere(string Disciplina, int idCurso, int idAtividade)
+        {
+            int idMax = GetMax();
+            using (var conexao = GetDBConnection())
+            {
+                using (OleDbCommand cmd = new OleDbCommand(_INSERT, conexao))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.AddWithValue("ID_DISCIPLINA", idMax);
+                    cmd.Parameters.AddWithValue("DISCIPLINA", Disciplina);
+                    cmd.Parameters.AddWithValue("ID_CURSO", idCurso);
+                    cmd.Parameters.AddWithValue("ID_ATIVIDADE", idAtividade);
+                    conexao.Open();
+                    cmd.ExecuteNonQuery();
+
+                    return idMax;
+                }   
+            }
+        }
+
+        public List<Disciplina> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Disciplina GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Insere(Disciplina obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Atualiza(Disciplina obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Exclui(int id)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}

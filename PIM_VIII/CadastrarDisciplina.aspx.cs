@@ -13,6 +13,7 @@ namespace PIM_VIII
 {
     public partial class CadastrarDisciplina : System.Web.UI.Page
     {
+        DataSet DsAtividades;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -21,6 +22,15 @@ namespace PIM_VIII
                 ddlCurso.DataTextField = "Curso";
                 ddlCurso.DataValueField = "ID_CURSO";
                 ddlCurso.DataBind();
+
+                try
+                {
+                    DsAtividades = ctlAtividade.GetAllDataSetAtividade();
+                }
+                catch (Exception)
+                {
+                    
+                }
 
                 ddlAtividade.DataSource = ctlAtividade.GetAllDataSetAtividade();
                 ddlAtividade.DataTextField = "Atividade";

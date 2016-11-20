@@ -12,8 +12,15 @@ namespace PIM_VIII.Control
     {
         public static DataSet GetAllDataSetAtividade()
         {
-            DataSet DataAtividade = PIM_VIII.Model.mdlAtividade.GetAll();
-            return DataAtividade;
+            try
+            {
+                DataSet DataAtividade = PIM_VIII.Model.AtividadeDAL.GetAtividadesDataSet();
+                return DataAtividade;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

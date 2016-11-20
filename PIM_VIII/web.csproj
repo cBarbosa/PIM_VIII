@@ -339,6 +339,10 @@
       <Project>{2db93211-5bd3-4717-8a4a-1a3dd1be7015}</Project>
       <Name>CamadaControle</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CamadaModelo\CamadaModelo.csproj">
+      <Project>{E54EDCD0-21FB-454A-BAC5-24F1FA3A5C93}</Project>
+      <Name>CamadaModelo</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
