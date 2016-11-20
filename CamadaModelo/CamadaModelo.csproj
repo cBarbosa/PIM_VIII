@@ -40,16 +40,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\AlunoDAL.cs" />
     <Compile Include="DAL\AtendenteDAL.cs" />
     <Compile Include="DAL\PessoaDAL.cs" />
+    <Compile Include="DAL\ProfessorDAL.cs" />
     <Compile Include="IConnection.cs" />
     <Compile Include="DAL\AtividadeDAL.cs" />
     <Compile Include="DAL\DisciplinaDAL.cs" />
     <Compile Include="Properties\mdlAutenticarLogin.cs" />
+    <Compile Include="VO\Aluno.cs" />
     <Compile Include="VO\Atendente.cs" />
     <Compile Include="VO\Atividade.cs" />
+    <Compile Include="VO\Curso.cs" />
     <Compile Include="VO\Disciplina.cs" />
     <Compile Include="VO\Pessoa.cs" />
+    <Compile Include="VO\Professor.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

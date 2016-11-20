@@ -27,7 +27,7 @@ namespace PIM_VIII.Account
 
         protected void login1_Authenticate(object sender, AuthenticateEventArgs e)
         {
-            Atendente usuario;
+            Pessoa usuario;
             try
             {
                 usuario = new PIM_VIII.Control.LoginControl().ValidaLogin(login1.UserName, login1.Password);

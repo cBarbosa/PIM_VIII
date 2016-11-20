@@ -10,25 +10,41 @@ namespace PIM_VIII.Control
     public class LoginControl
     {
         //public 
-        public Atendente ValidaLogin(string matricula, string senha)
+        public Pessoa ValidaLogin(string matricula, string senha)
         {
-            Atendente atendente;
+            Pessoa _pessoa = null;
             try
             {
-                atendente = new PIM_VIII.Model.AtendenteDAL().GetByMatricula(matricula);
+                #region tratamento para login de atendente
+                _pessoa = new PIM_VIII.Model.AtendenteDAL().GetByMatricula(matricula);
+                #endregion
+
+                #region tratamento para login de professor
+                if (_pessoa == null)
+                    _pessoa = new PIM_VIII.Model.ProfessorDAL().GetByMatricula(matricula);
+                #endregion
+
+                #region tratamento para login do aluno
+                if (_pessoa == null)
+                    _pessoa = new PIM_VIII.Model.AlunoDAL().GetByMatricula(matricula);
+                #endregion
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            
-            if (atendente == null)
-                throw new Exception("Atendente não encontrado.");
 
-            if (!atendente.Senha.Equals(senha))
-                throw new Exception("Senha não confere");
+            #region tratamento de validação de login
+            if (_pessoa == null)
+                throw new Exception("Usuário não encontrado.");
+            else
+            {
+                    if (!_pessoa.Senha.Equals(senha))
+                        throw new Exception("Senha não confere");
+            }
+            #endregion
 
-            return atendente;
+            return _pessoa;
         }
     }
 }

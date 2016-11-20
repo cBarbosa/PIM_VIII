@@ -2,7 +2,7 @@
 
 namespace PIM_VII.VO
 {
-    public class Atendente : Pessoa
+    public class Professor : Pessoa
     {
         public string Matricula { get; set; }
     }
