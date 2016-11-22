@@ -132,6 +132,7 @@
     <Content Include="Atendente\CadastraAtividade.aspx" />
     <Content Include="Atendente\CadastrarAluno.aspx" />
     <Content Include="Atendente\CreateAluno.aspx" />
+    <Content Include="Professor\CadastraAtividades.aspx" />
     <Content Include="Professor\CadastrarDisciplina.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\Site.css" />
@@ -204,6 +205,8 @@
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
     <Content Include="packages.config" />
+    <Content Include="Professor\EditarCronograma.aspx" />
+    <Content Include="Professor\VisualizaEntregas.aspx" />
     <Content Include="WebFormEnviar.aspx" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
@@ -305,6 +308,13 @@
     <Compile Include="Atendente\CreateAluno.aspx.designer.cs">
       <DependentUpon>CreateAluno.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Professor\CadastraAtividades.aspx.cs">
+      <DependentUpon>CadastraAtividades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Professor\CadastraAtividades.aspx.designer.cs">
+      <DependentUpon>CadastraAtividades.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Professor\CadastrarDisciplina.aspx.cs">
       <DependentUpon>CadastrarDisciplina.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -328,6 +338,20 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Professor\EditarCronograma.aspx.cs">
+      <DependentUpon>EditarCronograma.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Professor\EditarCronograma.aspx.designer.cs">
+      <DependentUpon>EditarCronograma.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Professor\VisualizaEntregas.aspx.cs">
+      <DependentUpon>VisualizaEntregas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Professor\VisualizaEntregas.aspx.designer.cs">
+      <DependentUpon>VisualizaEntregas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

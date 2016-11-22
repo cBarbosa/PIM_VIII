@@ -10,7 +10,7 @@ namespace PIM_VII.VO
     {
         public int Id { get; set; }
         public string Nome { get; set; }
-        public int IdCurso { get; set; }
-        public int IdAtividade { get; set; }
+        public Curso curso { get; set; }
+        //public Atividade atividade { get; set; }
     }
 }

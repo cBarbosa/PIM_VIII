@@ -125,6 +125,8 @@ namespace PIM_VIII.Control
         public static PerfilAcesso GetPerfilUsuarioLogado(HttpCookie httpCookie)
         {
             PerfilAcesso result = PerfilAcesso.Nenhum;
+            if (httpCookie == null)
+                return result;
 
             if (GetDadosAutenticados(httpCookie).GetType().Equals(typeof(Atendente)))
             {

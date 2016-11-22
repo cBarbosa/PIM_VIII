@@ -46,13 +46,15 @@ namespace PIM_VIII.Model
                 {
                     using (OleDbCommand cmd = new OleDbCommand(_SELECT_ALL, conexao))
                     {
+                        cmd.CommandType = CommandType.Text;
+                        conexao.Open();
                         using (OleDbDataReader reader = cmd.ExecuteReader())
                         {
                             if (reader.HasRows)
                             {
                                 while (reader.Read())
                                 {
-                                    var _disciplina = new Atividade
+                                    var _disciplina = new Atividade()
                                     {
                                         Id = reader.GetInt32(0),
                                         Nome = reader.GetString(1)

@@ -13,7 +13,8 @@ namespace PIM_VIII.Model
     public class DisciplinaDAL : IConnection<PIM_VII.VO.Disciplina>
     {
         const string _TABLE = "tbl_disciplinas";
-        const string _SELECT_ALL = "SELECT * FROM tbl_disciplinas";
+        const string _SELECT_ALL = @"SELECT ID_DISCIPLINA, DISCIPLINA, tbl_curso.ID_CURSO, tbl_curso.CURSO
+                            FROM tbl_disciplinas INNER JOIN tbl_curso ON tbl_disciplinas.ID_CURSO = tbl_curso.ID_CURSO ";
         const string _SELECT_MAX = "SELECT MAX(ID_DISCIPLINA) FROM tbl_disciplinas";
         const string _INSERT = "INSERT INTO tbl_disciplinas (ID_DISCIPLINA, DISCIPLINA, ID_CURSO, ID_ATIVIDADE) VALUES (?,?,?,?)";
 
@@ -31,11 +32,6 @@ namespace PIM_VIII.Model
             {
                 throw new Exception(String.Format("Erro: '{0}'", ex.Message));
             }
-        }
-
-        public void CloseDbConnection()
-        {
-            throw new NotImplementedException();
         }
 
         public static int GetMax()
@@ -87,7 +83,49 @@ namespace PIM_VIII.Model
 
         public List<Disciplina> GetAll()
         {
-            throw new NotImplementedException();
+            List<Disciplina> result = new List<Disciplina>();
+
+            try
+            {
+                using (var conexao = GetDBConnection())
+                {
+                    using (OleDbCommand cmd = new OleDbCommand(_SELECT_ALL, conexao))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        conexao.Open();
+                        using (OleDbDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                while (reader.Read())
+                                {
+                                    var _disciplina = new Disciplina()
+                                    {
+                                        Id = reader.GetInt32(0),
+                                        Nome = reader.GetString(1),
+                                        curso = new Curso()
+                                        {
+                                            Id = reader.GetInt32(2),
+                                            Nome = reader.GetString(3)
+                                        }
+                                    };
+                                    result.Add(_disciplina);
+                                }
+                            }
+                            else { result = null; }
+                        }
+                    }
+                }
+                return result;
+            }
+            catch (OleDbException db)
+            {
+                throw new Exception(String.Format("Erro no banco de dados.\nErro: {0}", db.Message));
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(String.Format("Não foi possível consultar os registrso na tabela '{0}'.\nErro: '{1}'", _TABLE, ex.Message));
+            }
         }
 
         public Disciplina GetById(int id)
@@ -108,6 +146,18 @@ namespace PIM_VIII.Model
         public void Exclui(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public List<Disciplina> GetAllByIdCurso(int id)
+        {
+            try
+            {
+                return GetAll().Where(x => x.curso.Id == id).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

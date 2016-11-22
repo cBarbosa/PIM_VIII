@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PIM_VII.VO;
+using PIM_VIII.Model;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
@@ -8,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace PIM_VIII.Control
 {
-    public class ctlAtividade
+    public class AtividadeControl
     {
         public static DataSet GetAllDataSetAtividade()
         {
@@ -21,6 +23,20 @@ namespace PIM_VIII.Control
             {
                 throw ex;
             }
+        }
+
+        public List<Atividade> GetAllAtividades()
+        {
+            try
+            {
+                return new AtividadeDAL().GetAll();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            
         }
     }
 }
