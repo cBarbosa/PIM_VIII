@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="PIM_VIII._Default" %>
+﻿<%@ Page Title="Página Principal" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="PIM_VIII._Default" %>
 
 <asp:Content runat="server" ID="FeaturedContent" ContentPlaceHolderID="FeaturedContent">
     
@@ -11,7 +11,7 @@
 
     <article>
         <p>        
-            Use this area to provide additional information.
+            use esta área para informações adicionais do projeto
         </p>
 
         <p>        
@@ -29,7 +29,8 @@
             Lista de tarefas liberadas a voce.
         </p>
         <ul>
-            <li><a runat="server" href="~/Atendente/About.aspx">Crud Aluno</a></li>
+            <li><a runat="server" href="About.aspx">Sobre</a></li>
+            <li><a runat="server" href="~/Atendente/CadastrarAluno.aspx">Aluno</a></li>
         </ul>
     </aside>
 </asp:Content>

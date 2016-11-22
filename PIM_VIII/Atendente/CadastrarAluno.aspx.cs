@@ -15,6 +15,10 @@ namespace PIM_VIII.Atendente
         {
             if (!IsPostBack)
             {
+                if (!PIM_VIII.Control.LoginControl.GetPerfilUsuarioLogado(Request.Cookies["ProjetoTCC"])
+                        .Equals(PerfilAcesso.Atendente))
+                    Response.Redirect("~/Default.aspx", true);
+
                 BindGridView();
             }
         }
@@ -65,16 +69,7 @@ namespace PIM_VIII.Atendente
 
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            return;
-            foreach (GridViewRow gvRow in GridView1.Rows)
-            {
-                DropDownList ddlCurso = (DropDownList)gvRow.FindControl("drpCurso");
-
-                if (ddlCurso != null)
-                {
-                    ddlCurso.SelectedValue = e.Row.Cells[3].Text;
-                }
-            }
+            
         }
     }
 }

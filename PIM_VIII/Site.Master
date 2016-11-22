@@ -52,9 +52,9 @@
                         </AnonymousTemplate>
                         <LoggedInTemplate>
                             <p>
-                                Olá, <a runat="server" class="username" href="~/Account/Manage.aspx" title="Manage your account">
+                                Olá, <a runat="server" class="username" href="#" title="Gerenciar acesso">
                                     <asp:LoginName runat="server" CssClass="username" /></a>!
-                                <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" />
+                                <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Sair" LogoutPageUrl="~/" />
                             </p>
                         </LoggedInTemplate>
                     </asp:LoginView>
@@ -62,12 +62,25 @@
                 <nav>
                     <ul id="menu">
                         <li><a runat="server" href="~/">Home</a></li>
-                        <!-- atividades para atendente -->
-                        <li><a runat="server" href="~/Atendente/CadastrarAluno.aspx">Aluno</a></li>
-                        <li><a runat="server" href="~/Atendente/CadastrarProva.aspx">Prova</a></li>
-                        
-                        <!-- atividades para aluno -->
-                        <li><a runat="server" href="~/Atendente/CadastrarProva.aspx">Lista de Tarefas</a></li>
+                        <%
+                            if (Request.IsAuthenticated)
+                            {
+                            %>
+                            <% if (PIM_VIII.Control.LoginControl.GetPerfilUsuarioLogado(Request.Cookies["ProjetoTCC"]).Equals(PIM_VIII.Control.PerfilAcesso.Atendente)) { %>
+                                <li><a runat="server" href="~/Atendente/CadastrarAluno.aspx">Alunos</a></li>
+                                <li><a runat="server" href="~/Atendente/CadastraAtividade.aspx">Atividades</a></li>
+                            <%} %>
+
+                            <% if (PIM_VIII.Control.LoginControl.GetPerfilUsuarioLogado(Request.Cookies["ProjetoTCC"]).Equals(PIM_VIII.Control.PerfilAcesso.Professor)) { %>
+                                <li><a runat="server" href="~/Professor/CorrigeProva.aspx">Provas</a></li>
+                                <li><a runat="server" href="~/Professor/LancaAtividade.aspx">Atividades</a></li>
+                            <%} %>
+
+                            <% if (PIM_VIII.Control.LoginControl.GetPerfilUsuarioLogado(Request.Cookies["ProjetoTCC"]).Equals(PIM_VIII.Control.PerfilAcesso.Aluno)) { %>
+                                <li><a runat="server" href="~/Aluno/CadastraAtividade.aspx">Lista de Tarefas</a></li>
+                            <%} %>
+                            <li><a runat="server" href="~/About.aspx">Sobre</a></li>
+                        <%} %>
                     </ul>
                 </nav>
             </div>

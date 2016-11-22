@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.OleDb;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -25,14 +24,14 @@ namespace PIM_VIII
 
                 try
                 {
-                    DsAtividades = ctlAtividade.GetAllDataSetAtividade();
+                    DsAtividades = AtividadeControl.GetAllDataSetAtividade();
                 }
                 catch (Exception)
                 {
                     
                 }
 
-                ddlAtividade.DataSource = ctlAtividade.GetAllDataSetAtividade();
+                ddlAtividade.DataSource = AtividadeControl.GetAllDataSetAtividade();
                 ddlAtividade.DataTextField = "Atividade";
                 ddlAtividade.DataValueField = "ID_ATIVIDADE";
                 ddlAtividade.DataBind();
@@ -48,8 +47,8 @@ namespace PIM_VIII
                 Disciplina disciplina = new Disciplina();
 
                 disciplina.Nome = nome;
-                disciplina.IdCurso = idCurso;
-                disciplina.IdAtividade = idAtividade;
+                disciplina.curso = new Curso { Id = idCurso };
+                disciplina.atividade = new Atividade { Id = idAtividade };
 
                 ctlDisciplina.InsertDisciplina(disciplina);
         }

@@ -36,7 +36,7 @@ namespace PIM_VIII.Atendente
                 dts = txtDataNascimento.Text.Split('/');
             try
             {
-                new AtendenteControl().InsereAluno(txtNome.Text, txtMatricula.Text, int.Parse(txtCPF.Text), int.Parse(txtRG.Text), new DateTime(int.Parse(dts[2]), int.Parse(dts[1]), int.Parse(dts[0])), int.Parse(dpCurso.SelectedValue));
+                new AtendenteControl().InsereAluno(txtNome.Text, txtMatricula.Text, double.Parse(txtCPF.Text), int.Parse(txtRG.Text), new DateTime(int.Parse(dts[2]), int.Parse(dts[1]), int.Parse(dts[0])), int.Parse(dpCurso.SelectedValue));
                 Response.Redirect("~/Atendente/CadastrarAluno.aspx", true);
             }
             catch (Exception)

@@ -3,6 +3,7 @@
 
 namespace PIM_VII.VO
 {
+    [Serializable]
     public abstract class Pessoa
     {
         public string Nome { get; set; }

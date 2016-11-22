@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="DAL\AlunoDAL.cs" />
     <Compile Include="DAL\AtendenteDAL.cs" />
+    <Compile Include="DAL\CronogramaDAL.cs" />
     <Compile Include="DAL\CursoDAL.cs" />
     <Compile Include="DAL\PessoaDAL.cs" />
     <Compile Include="DAL\ProfessorDAL.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="VO\Aluno.cs" />
     <Compile Include="VO\Atendente.cs" />
     <Compile Include="VO\Atividade.cs" />
+    <Compile Include="VO\Cronograma.cs" />
     <Compile Include="VO\Curso.cs" />
     <Compile Include="VO\Disciplina.cs" />
     <Compile Include="VO\Pessoa.cs" />
