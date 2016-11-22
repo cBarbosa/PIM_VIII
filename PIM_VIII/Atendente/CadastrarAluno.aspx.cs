@@ -16,7 +16,7 @@ namespace PIM_VIII.Atendente
             if (!IsPostBack)
             {
                 if (!PIM_VIII.Control.LoginControl.GetPerfilUsuarioLogado(Request.Cookies["ProjetoTCC"])
-                        .Equals(typeof(PIM_VII.VO.Atendente)))
+                        .Equals(PerfilAcesso.Atendente))
                     Response.Redirect("~/Default.aspx", true);
 
                 BindGridView();

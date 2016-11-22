@@ -129,6 +129,7 @@
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
     <Content Include="App_Data\dbPIM_VIII.accdb" />
+    <Content Include="Atendente\CadastraAtividade.aspx" />
     <Content Include="Atendente\CadastrarAluno.aspx" />
     <Content Include="Atendente\CreateAluno.aspx" />
     <Content Include="Professor\CadastrarDisciplina.aspx" />
@@ -282,6 +283,13 @@
     </Compile>
     <Compile Include="Account\RegisterExternalLogin.aspx.designer.cs">
       <DependentUpon>RegisterExternalLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Atendente\CadastraAtividade.aspx.cs">
+      <DependentUpon>CadastraAtividade.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Atendente\CadastraAtividade.aspx.designer.cs">
+      <DependentUpon>CadastraAtividade.aspx</DependentUpon>
     </Compile>
     <Compile Include="Atendente\CadastrarAluno.aspx.cs">
       <DependentUpon>CadastrarAluno.aspx</DependentUpon>
