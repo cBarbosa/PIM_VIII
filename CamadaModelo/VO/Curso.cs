@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace PIM_VII.VO
 {
+    [Serializable]
     public class Curso
     {
         public int Id { get; set; }

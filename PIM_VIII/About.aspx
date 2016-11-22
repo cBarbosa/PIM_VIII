@@ -1,4 +1,4 @@
-﻿<%@ Page Title="About" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="PIM_VIII.About" %>
+﻿<%@ Page Title="Sobre" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="About.aspx.cs" Inherits="PIM_VIII.About" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <hgroup class="title">
@@ -7,17 +7,10 @@
     </hgroup>
 
     <article>
-        <p>        
-            Use this area to provide additional information.
+        <p>
+            Use esta área para prover informações adicionais.       
         </p>
 
-        <p>        
-            Use this area to provide additional information.
-        </p>
-
-        <p>        
-            Use this area to provide additional information.
-        </p>
     </article>
 
     <aside>

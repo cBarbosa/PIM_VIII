@@ -11,7 +11,7 @@
 
     <article>
         <p>        
-            Use this area to provide additional information.
+            use esta área para informações adicionais do projeto
         </p>
 
         <p>        

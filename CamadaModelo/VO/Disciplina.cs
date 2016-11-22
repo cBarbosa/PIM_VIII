@@ -5,6 +5,7 @@ using System.Web;
 
 namespace PIM_VII.VO
 {
+    [Serializable]
     public class Disciplina
     {
         public int Id { get; set; }

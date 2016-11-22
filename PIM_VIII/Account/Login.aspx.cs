@@ -1,7 +1,9 @@
 ﻿using PIM_VII.VO;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Web;
 using System.Web.Security;
 using System.Web.UI;
@@ -37,12 +39,10 @@ namespace PIM_VIII.Account
                 login1.FailureText = ex.Message;
                 return;
             }
-            
 
             if (usuario != null)
             {
                 if (Request.QueryString["ReturnUrl"] != null)
-                    //Response.Redirect(HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]), true);
                     FormsAuthentication.RedirectFromLoginPage(usuario.Nome, login1.RememberMeSet);
                 else
                     Response.Redirect("~/About.aspx", true);
