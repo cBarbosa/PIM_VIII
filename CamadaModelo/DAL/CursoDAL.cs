@@ -16,6 +16,8 @@ namespace PIM_VIII.Model
         const string _TABLE = "tbl_curso";
         const string _SELECT_ALL = @"SELECT ID_CURSO, CURSO
                                     FROM tbl_curso";
+        const string _SELECT_ID = @"SELECT ID_CURSO, CURSO
+                                    FROM tbl_curso WHERE ID_CURSO = ?";
 
         private static OleDbConnection GetDBConnection()
         {
@@ -88,7 +90,43 @@ namespace PIM_VIII.Model
 
         public Curso GetById(int id)
         {
-            throw new NotImplementedException();
+            Curso result = new Curso();
+
+            try
+            {
+                using (var conexao = GetDBConnection())
+                {
+                    using (OleDbCommand cmd = new OleDbCommand(_SELECT_ID, conexao))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("ID_CURSO", id);
+                        conexao.Open();
+
+                        using (OleDbDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                reader.Read();
+                                result = new Curso
+                                {
+                                    Id = reader.GetInt32(0),
+                                    Nome = reader.GetString(1)
+                                };
+                            }
+                            else { result = null; }
+                        }
+                    }
+                }
+                return result;
+            }
+            catch (OleDbException db)
+            {
+                throw new Exception(String.Format("Erro no banco de dados.\nErro: {0}", db.Message));
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(String.Format("Não foi possível consultar o registro na tabela '{0}'.\nErro: '{1}'", _TABLE, ex.Message));
+            }
         }
 
         public void Insere(Curso Curso)

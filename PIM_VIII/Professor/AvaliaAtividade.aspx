@@ -1,10 +1,9 @@
-﻿<%@ Page Title="Enviar Atividade" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EnviarAtividade.aspx.cs" Inherits="PIM_VIII.Aluno.EnviarAtividade" %>
+﻿<%@ Page Title="Avaliação de Atividade" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AvaliaAtividade.aspx.cs" Inherits="PIM_VIII.Professor.AvaliaAtividade" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-
     <asp:Label ID="msgRetorno" runat="server" Font-Bold="True" Font-Size="Large"></asp:Label>
 
     <table>
@@ -20,8 +19,6 @@
                 até <asp:Label ID="dtFim" runat="server" Text=""></asp:Label>
             </td>
         </tr>
-        <%if (!String.IsNullOrEmpty(dtEnvio.Text))
-            {%>
         <tr>
             <td>
                 <strong>Enviado em:</strong> de <asp:Label ID="dtEnvio" runat="server" Text=""></asp:Label> 
@@ -34,29 +31,30 @@
         </tr>
         <tr>
             <td>
-                <strong>Nota:</strong> <asp:Label ID="txtNota" runat="server" Text=""></asp:Label> 
+                <asp:Label ID="Label3" runat="server" Text="Nota"></asp:Label>
+                <br />
+                <asp:TextBox ID="TextBox1" runat="server" MaxLength="2"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td>
                 <asp:Label ID="Label2" runat="server" Text="Observação do professor"></asp:Label>
                 <br />
-                <asp:TextBox ID="txtObsProf" runat="server" TextMode="MultiLine" Rows="3" ReadOnly="true" ></asp:TextBox>
+                <asp:TextBox ID="txtObsProf" runat="server" TextMode="MultiLine" Rows="3" ReadOnly="false" ></asp:TextBox>
             </td>
         </tr>
-        <%} %>
         <tr>
             <td>
-                <asp:Label ID="lblObs" runat="server" Text="Observação"></asp:Label>
+                <asp:Label ID="lblObs" runat="server" Text="Observação do aluno"></asp:Label>
                 <br />
-                <asp:TextBox ID="txtobs" runat="server" TextMode="MultiLine" Rows="3" ></asp:TextBox>
+                <asp:TextBox ID="txtobs" runat="server" TextMode="MultiLine" Rows="3" ReadOnly="true"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td>
                 <asp:Label ID="Label1" runat="server" Text="Arquivo"></asp:Label>
                 <br />
-                <asp:FileUpload ID="FileUpload1" runat="server" />
+                [xxxxx]
             </td>
         </tr>
         <tr>

@@ -71,13 +71,26 @@ namespace PIM_VIII.Professor
 
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
-            string[]  strDt = txtDtInicio.Text.Split('/');
-            DateTime dataInicio = new DateTime(int.Parse(strDt[2]), int.Parse(strDt[1]), int.Parse(strDt[0]));
+            try
+            {
+                string[] strDt = txtDtInicio.Text.Split('/');
+                DateTime dataInicio = new DateTime(int.Parse(strDt[2]), int.Parse(strDt[1]), int.Parse(strDt[0]));
 
-            strDt = txtDtFim.Text.Split('/');
-            DateTime dataFinal= new DateTime(int.Parse(strDt[2]), int.Parse(strDt[1]), int.Parse(strDt[0]));
-            int.TryParse(Request.QueryString["Id"], out id);
-            new CronogramaControl().UpdateCronograma(id, int.Parse(dpAtividade.SelectedValue), int.Parse(dpDisciplina.SelectedValue), dataInicio, dataFinal);
+                strDt = txtDtFim.Text.Split('/');
+                DateTime dataFinal = new DateTime(int.Parse(strDt[2]), int.Parse(strDt[1]), int.Parse(strDt[0]));
+                int.TryParse(Request.QueryString["Id"], out id);
+                new CronogramaControl().UpdateCronograma(id, int.Parse(dpAtividade.SelectedValue), int.Parse(dpDisciplina.SelectedValue), dataInicio, dataFinal);
+
+                msgRetorno.Text = "Alterações realizadas com sucesso.";
+                msgRetorno.ForeColor = System.Drawing.Color.Green;
+            }
+            catch (Exception ex)
+            {
+                msgRetorno.Text = ex.Message;
+                msgRetorno.ForeColor = System.Drawing.Color.Red;
+                throw ex;
+            }
+            
         }
     }
 }

@@ -134,6 +134,7 @@
     <Content Include="Atendente\CadastraAtividade.aspx" />
     <Content Include="Atendente\CadastrarAluno.aspx" />
     <Content Include="Atendente\CreateAluno.aspx" />
+    <Content Include="Professor\AvaliaAtividade.aspx" />
     <Content Include="Professor\CadastraAtividades.aspx" />
     <Content Include="Professor\CadastrarDisciplina.aspx" />
     <Content Include="Contact.aspx" />
@@ -325,6 +326,13 @@
     </Compile>
     <Compile Include="Atendente\CreateAluno.aspx.designer.cs">
       <DependentUpon>CreateAluno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Professor\AvaliaAtividade.aspx.cs">
+      <DependentUpon>AvaliaAtividade.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Professor\AvaliaAtividade.aspx.designer.cs">
+      <DependentUpon>AvaliaAtividade.aspx</DependentUpon>
     </Compile>
     <Compile Include="Professor\CadastraAtividades.aspx.cs">
       <DependentUpon>CadastraAtividades.aspx</DependentUpon>

@@ -11,7 +11,7 @@ namespace PIM_VII.VO
     public class Envio
     {
         public int Id { get; set; }
-        public float nota { get; set; }
+        public int nota { get; set; }
         public DateTime DataEnvio { get; set; }
         public DateTime DataCorrecao { get; set; }
         public string ObsAluno { get; set; }

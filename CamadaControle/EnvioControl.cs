@@ -12,10 +12,6 @@ namespace PIM_VIII.Control
 {
     public class EnvioControl
     {
-        public List<Envio> GetAllEnviosByAluno(Aluno aluno)
-        {
-            return new EnvioDAL().GetByAluno(aluno);
-        }
 
         public void EnviarAtividadeByAluno(int idCronograma, Aluno _aluno, string observacoes, HttpPostedFile file = null)
         {
@@ -44,14 +40,39 @@ namespace PIM_VIII.Control
                 new EnvioDAL().Insere(envio);
         }
 
-        public List<Envio> GetEnvioByAluno(Aluno aluno)
+        public List<Envio> GetAllEnviosByProfessor(Professor professor)
         {
-            return new EnvioDAL().GetByAluno(aluno);
+            return new EnvioDAL().GetAll().Where(x => x.cronograma.disciplina.Id == professor.disciplina.Id).ToList();
         }
 
         public Envio GetEnvioByIdCronogramaAluno(int idCronograma, Aluno aluno)
         {
-            return GetEnvioByAluno(aluno).Where(x => x.cronograma.Id == idCronograma).FirstOrDefault();
+            return new EnvioDAL().GetAll().Where(x => x.aluno != null && x.aluno.Matricula == aluno.Matricula)
+                .Where(x => x.cronograma.Id == idCronograma).FirstOrDefault();
+        }
+
+        public Envio GetEnvioByIdCronogramaProfessor(int IdEnvio, Professor professor)
+        {
+            return new EnvioDAL().GetAll().Where(x => x.cronograma.disciplina.Id == professor.disciplina.Id)
+                .Where(x => x.Id == IdEnvio).FirstOrDefault();
+        }
+
+        public void EnviarAtividadeByProfessor(int idEnvio, Professor professor, int nota, string observacoes)
+        {
+            try
+            {
+                var _envio = new EnvioControl().GetEnvioByIdCronogramaProfessor(idEnvio, professor);
+
+                _envio.ObsProfessor = observacoes;
+                _envio.DataCorrecao= DateTime.Now;
+                _envio.nota = nota;
+
+                new EnvioDAL().Atualiza(_envio);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         private void SaveFile(HttpPostedFile file)

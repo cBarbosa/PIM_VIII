@@ -10,8 +10,10 @@ namespace PIM_VIII.Model
     public class ProfessorDAL : IConnection<PIM_VII.VO.Professor>
     {
         const string _TABLE = "tbl_usuario";
-        const string _SELECT_MATRICULA = @"SELECT MATRICULA, NOME, SENHA, CPF, RG, DATANASCIMENTO
-                                    FROM tbl_usuario WHERE MATRICULA = ? AND PERFIL = '2'";
+        const string _SELECT_MATRICULA = @"SELECT MATRICULA, NOME, SENHA, CPF, RG, DATANASCIMENTO, tbl_disciplinas.ID_DISCIPLINA
+                                    FROM tbl_usuario
+                                    INNER JOIN tbl_disciplinas ON tbl_usuario.ID_DISCIPLINA = tbl_disciplinas.ID_DISCIPLINA
+                                    WHERE MATRICULA = ? AND PERFIL = '2'";
 
         private static OleDbConnection GetDBConnection()
         {
@@ -80,7 +82,8 @@ namespace PIM_VIII.Model
                                     Senha = reader.GetString(2),
                                     CPF = reader.GetDouble(3),
                                     RG = reader.GetInt32(4),
-                                    DataNascimento = reader.GetDateTime(5)
+                                    DataNascimento = reader.GetDateTime(5),
+                                    disciplina = reader[6] == DBNull.Value ? null : new DisciplinaDAL().GetById(reader.GetInt32(6))
                                 };
                             }
                             else { result = null; }

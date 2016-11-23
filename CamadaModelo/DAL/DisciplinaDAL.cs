@@ -18,6 +18,9 @@ namespace PIM_VIII.Model
         const string _SELECT_MAX = "SELECT MAX(ID_DISCIPLINA) FROM tbl_disciplinas";
         const string _INSERT = "INSERT INTO tbl_disciplinas (ID_DISCIPLINA, DISCIPLINA, ID_CURSO, ID_ATIVIDADE) VALUES (?,?,?,?)";
 
+        const string _SELECT_ID = @"SELECT ID_DISCIPLINA, DISCIPLINA, ID_CURSO
+                            FROM tbl_disciplinas WHERE ID_DISCIPLINA = ?";
+
         private static OleDbConnection GetDBConnection()
         {
             try
@@ -130,7 +133,44 @@ namespace PIM_VIII.Model
 
         public Disciplina GetById(int id)
         {
-            throw new NotImplementedException();
+            Disciplina result = new Disciplina();
+
+            try
+            {
+                using (var conexao = GetDBConnection())
+                {
+                    using (OleDbCommand cmd = new OleDbCommand(_SELECT_ID, conexao))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("ID_DISCIPLINA", id);
+                        conexao.Open();
+
+                        using (OleDbDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                reader.Read();
+                                result = new Disciplina
+                                {
+                                    Id = reader.GetInt32(0),
+                                    Nome = reader.GetString(1),
+                                    curso = reader[2] == DBNull.Value ? null : new CursoDAL().GetById(reader.GetInt32(2))
+                                };
+                            }
+                            else { result = null; }
+                        }
+                    }
+                }
+                return result;
+            }
+            catch (OleDbException db)
+            {
+                throw new Exception(String.Format("Erro no banco de dados.\nErro: {0}", db.Message));
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(String.Format("Não foi possível consultar o registro na tabela '{0}'.\nErro: '{1}'", _TABLE, ex.Message));
+            }
         }
 
         public void Insere(Disciplina obj)

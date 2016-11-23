@@ -47,8 +47,15 @@ namespace PIM_VIII.Aluno
                 dtEnvio.Text = envio.DataEnvio.ToShortDateString();
                 dtCorrecao.Text = envio.DataCorrecao.Equals(DateTime.MinValue) ? "N/D" : envio.DataCorrecao.ToShortDateString();
                 txtNota.Text = envio.nota==-1 ? "N/D" : String.Format("{0:N}", envio.nota);
-                txtobs.Text = String.IsNullOrEmpty(envio.ObsProfessor) ? "N/D" : envio.ObsProfessor;
+                txtObsProf.Text = String.IsNullOrEmpty(envio.ObsProfessor) ? "N/D" : envio.ObsProfessor;
                 txtobs.Text = envio.ObsAluno;
+                if(envio.nota>0)
+                {
+                    btnEnviar.Visible = false;
+                    msgRetorno.Text = "Atividade já corrigida.";
+                    msgRetorno.ForeColor = System.Drawing.Color.Gray;
+                    FileUpload1.Visible = false;
+                }
             }
         }
 
@@ -68,11 +75,18 @@ namespace PIM_VIII.Aluno
             int idCrono = 0;
             int.TryParse(Request.QueryString["Id"], out idCrono);
 
-            new EnvioControl().EnviarAtividadeByAluno(idCrono, aluno, txtobs.Text, FileUpload1.HasFile ? FileUpload1.PostedFile : null);
+            try
+            {
+                new EnvioControl().EnviarAtividadeByAluno(idCrono, aluno, txtobs.Text, FileUpload1.HasFile ? FileUpload1.PostedFile : null);
 
-            msgRetorno.Text = "Atividade salva com sucesso.";
-            msgRetorno.ForeColor = System.Drawing.Color.Green;
-
+                msgRetorno.Text = "Atividade salva com sucesso.";
+                msgRetorno.ForeColor = System.Drawing.Color.Green;
+            }
+            catch (Exception ex)
+            {
+                msgRetorno.Text = ex.Message;
+                msgRetorno.ForeColor = System.Drawing.Color.Red;
+            }
             PreencheForm(aluno);
         }
 
