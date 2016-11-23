@@ -134,6 +134,8 @@
     <Content Include="Atendente\CadastraAtividade.aspx" />
     <Content Include="Atendente\CadastrarAluno.aspx" />
     <Content Include="Atendente\CreateAluno.aspx" />
+    <Content Include="Atendente\CreateCronograma.aspx" />
+    <Content Include="Atendente\EditarCronograma.aspx" />
     <Content Include="Professor\AvaliaAtividade.aspx" />
     <Content Include="Professor\CadastraAtividades.aspx" />
     <Content Include="Professor\CadastrarDisciplina.aspx" />
@@ -208,6 +210,7 @@
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
     <Content Include="packages.config" />
+    <Content Include="Professor\CreateCronograma.aspx" />
     <Content Include="Professor\EditarCronograma.aspx" />
     <Content Include="Professor\VisualizaEntregas.aspx" />
     <Content Include="WebFormEnviar.aspx" />
@@ -327,6 +330,20 @@
     <Compile Include="Atendente\CreateAluno.aspx.designer.cs">
       <DependentUpon>CreateAluno.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Atendente\CreateCronograma.aspx.cs">
+      <DependentUpon>CreateCronograma.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Atendente\CreateCronograma.aspx.designer.cs">
+      <DependentUpon>CreateCronograma.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Atendente\EditarCronograma.aspx.cs">
+      <DependentUpon>EditarCronograma.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Atendente\EditarCronograma.aspx.designer.cs">
+      <DependentUpon>EditarCronograma.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Professor\AvaliaAtividade.aspx.cs">
       <DependentUpon>AvaliaAtividade.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -364,6 +381,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Professor\CreateCronograma.aspx.cs">
+      <DependentUpon>CreateCronograma.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Professor\CreateCronograma.aspx.designer.cs">
+      <DependentUpon>CreateCronograma.aspx</DependentUpon>
     </Compile>
     <Compile Include="Professor\EditarCronograma.aspx.cs">
       <DependentUpon>EditarCronograma.aspx</DependentUpon>

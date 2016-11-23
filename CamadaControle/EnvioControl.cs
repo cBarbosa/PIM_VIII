@@ -40,9 +40,10 @@ namespace PIM_VIII.Control
                 new EnvioDAL().Insere(envio);
         }
 
-        public List<Envio> GetAllEnviosByProfessor(Professor professor)
+        public List<Envio> GetAllEnviosByIdCronogramaProfessor(int idCronograma, Professor professor)
         {
-            return new EnvioDAL().GetAll().Where(x => x.cronograma.disciplina.Id == professor.disciplina.Id).ToList();
+            return new EnvioDAL().GetAll().Where(x => x.cronograma.disciplina.Id == professor.disciplina.Id)
+                .Where(x=> x.cronograma.Id == idCronograma).ToList();
         }
 
         public Envio GetEnvioByIdCronogramaAluno(int idCronograma, Aluno aluno)

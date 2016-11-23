@@ -37,11 +37,13 @@ namespace PIM_VIII.Atendente
             try
             {
                 new AtendenteControl().InsereAluno(txtNome.Text, txtMatricula.Text, double.Parse(txtCPF.Text), int.Parse(txtRG.Text), new DateTime(int.Parse(dts[2]), int.Parse(dts[1]), int.Parse(dts[0])), int.Parse(dpCurso.SelectedValue));
-                Response.Redirect("~/Atendente/CadastrarAluno.aspx", true);
+                msgRetorno.Text = "Aluno cadastrado com sucesso.";
+                msgRetorno.ForeColor = System.Drawing.Color.Green;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                msgRetorno.Text = ex.Message;
+                msgRetorno.ForeColor = System.Drawing.Color.Red;
             }
             
         }

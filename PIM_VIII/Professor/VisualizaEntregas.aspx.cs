@@ -21,12 +21,19 @@ namespace PIM_VIII.Professor
 
                 id = 0;
                 int.TryParse(Request.QueryString["Id"], out id);
+                try
+                {
+                    PIM_VII.VO.Professor professor = (PIM_VII.VO.Professor)LoginControl.GetDadosAutenticados(Request.Cookies["ProjetoTCC"]);
 
-                PIM_VII.VO.Professor professor = (PIM_VII.VO.Professor)LoginControl.GetDadosAutenticados(Request.Cookies["ProjetoTCC"]);
-                var envios = new EnvioControl().GetAllEnviosByProfessor(professor);
+                    var envios = new EnvioControl().GetAllEnviosByIdCronogramaProfessor(id, professor);
 
-                GridView1.DataSource = envios;
-                GridView1.DataBind();
+                    GridView1.DataSource = envios;
+                    GridView1.DataBind();
+                }
+                catch (Exception ex)
+                {
+
+                }
             }
         }
     }

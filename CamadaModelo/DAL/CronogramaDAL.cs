@@ -29,6 +29,8 @@ namespace PIM_VIII.Model
                                 WHERE ID_CRONOGRAMA = ?";
         const string _UPDATE_ID = @"UPDATE tbl_cronograma SET ID_ATIVIDADE = ?, ID_DISCIPLINA = ?, [DATA INICIAL DE ENTREGA] = ?, [DATA FINAL   DE ENTREGA] = ?
                                     WHERE ID_CRONOGRAMA = ?";
+        const string _INSERT = @"INSERT INTO tbl_cronograma (ID_ATIVIDADE, ID_DISCIPLINA, [DATA INICIAL DE ENTREGA], [DATA FINAL   DE ENTREGA])
+                                    VALUES(?,?,?,?)";
 
         private static OleDbConnection GetDBConnection()
         {
@@ -196,9 +198,21 @@ namespace PIM_VIII.Model
             }
         }
 
-        public void Insere(Cronograma obj)
+        public void Insere(Cronograma cronograma)
         {
-            throw new NotImplementedException();
+            using (var conexao = GetDBConnection())
+            {
+                using (OleDbCommand cmd = new OleDbCommand(_INSERT, conexao))
+                {
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.AddWithValue("ID_ATIVIDADE", cronograma.atividade.Id);
+                    cmd.Parameters.AddWithValue("ID_DISCIPLINA", cronograma.disciplina.Id);
+                    cmd.Parameters.AddWithValue("[DATA INICIAL DE ENTREGA]", cronograma.DataInicio);
+                    cmd.Parameters.AddWithValue("[DATA FINAL   DE ENTREGA]", cronograma.DataFim);
+                    conexao.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
 
         public List<Cronograma> GetAllAtividadesByIdCurso(int idCurso)

@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace PIM_VIII.Professor
+namespace PIM_VIII.Atendente
 {
     public partial class EditarCronograma : System.Web.UI.Page
     {
@@ -24,6 +24,13 @@ namespace PIM_VIII.Professor
                     if (id > 0)
                     {
                         var cronograma = new CronogramaControl().getCronogramaById(id);
+                        if (!cronograma.atividade.Nome.Contains("Provas")
+                            && !cronograma.atividade.Nome.Contains("Dependência"))
+                        {
+                            msgRetorno.Text = "Você não tem permissão para alterar esta atividade.";
+                            msgRetorno.ForeColor = System.Drawing.Color.Gray;
+                            DesabilitaForm();
+                        }
                         PreencheForm(cronograma);
                     }
                 }
@@ -33,6 +40,16 @@ namespace PIM_VIII.Professor
                     msgRetorno.ForeColor = System.Drawing.Color.Red;
                 }
             }
+        }
+
+        private void DesabilitaForm()
+        {
+            dpCurso.Enabled = false;
+            dpDisciplina.Enabled = false;
+            dpAtividade.Visible = false;
+            txtDtInicio.Enabled = false;
+            txtDtFim.Enabled = false;
+            btnEnviar.Visible = false;
         }
 
         private void PreencheForm(Cronograma cronograma)
@@ -48,7 +65,7 @@ namespace PIM_VIII.Professor
             dpDisciplina.DataValueField = "ID";
             dpDisciplina.DataBind();
 
-            dpAtividade.DataSource = new AtividadeControl().GetAllAtividadesProfessor();
+            dpAtividade.DataSource = new AtividadeControl().GetAllAtividadesAtendente();
             dpAtividade.DataTextField = "Nome";
             dpAtividade.DataValueField = "ID";
             dpAtividade.DataBind();
@@ -74,7 +91,7 @@ namespace PIM_VIII.Professor
 
         protected void lbtVoltar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Professor/CadastraAtividades.aspx", true);
+            Response.Redirect("~/Atendente/CadastraAtividade.aspx", true);
         }
 
         protected void btnEnviar_Click(object sender, EventArgs e)
@@ -86,7 +103,9 @@ namespace PIM_VIII.Professor
 
                 strDt = txtDtFim.Text.Split('/');
                 DateTime dataFinal = new DateTime(int.Parse(strDt[2]), int.Parse(strDt[1]), int.Parse(strDt[0]));
+
                 int.TryParse(Request.QueryString["Id"], out id);
+
                 new CronogramaControl().UpdateCronograma(id, int.Parse(dpAtividade.SelectedValue), int.Parse(dpDisciplina.SelectedValue), dataInicio, dataFinal);
 
                 msgRetorno.Text = "Alterações realizadas com sucesso.";

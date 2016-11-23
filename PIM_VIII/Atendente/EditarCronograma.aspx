@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditarCronograma.aspx.cs" Inherits="PIM_VIII.Professor.EditarCronograma" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditarCronograma.aspx.cs" Inherits="PIM_VIII.Atendente.EditarCronograma" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
@@ -50,4 +50,5 @@
         </tr>
         
     </table>
+
 </asp:Content>

@@ -15,6 +15,11 @@ namespace PIM_VIII.Control
             return new CronogramaDAL().GetAll();
         }
 
+        public List<Cronograma> GetAllCronogramaByProfessor(Professor professor)
+        {
+            return new CronogramaDAL().GetAll().Where(x => x.disciplina.Id == professor.disciplina.Id).ToList();
+        }
+
         public Cronograma getCronogramaById(int id)
         {
             return new CronogramaDAL().GetById(id);
@@ -45,6 +50,26 @@ namespace PIM_VIII.Control
             try
             {
                 return new CronogramaDAL().GetAllAtividadesByIdCurso(aluno.CursoMatriculado.Id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void InsereCronograma(int atividade, int disciplina, DateTime dataInicio, DateTime dataFinal)
+        {
+            try
+            {
+                var cronograma = new Cronograma()
+                {
+                    atividade = new AtividadeDAL().GetById(atividade),
+                    disciplina = new DisciplinaDAL().GetById(disciplina),
+                    DataInicio = dataInicio,
+                    DataFim = dataFinal,
+                };
+
+                new CronogramaDAL().Insere(cronograma);
             }
             catch (Exception ex)
             {

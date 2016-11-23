@@ -4,7 +4,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-    <p>
+
+    <asp:Label ID="msgRetorno" runat="server" Font-Bold="True" Font-Size="Large"></asp:Label>
 
     <div id="FormDisciplina">
         <asp:Label ID="Label1" runat="server" Text="Disciplina:"></asp:Label>

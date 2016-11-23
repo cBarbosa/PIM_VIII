@@ -5,6 +5,8 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
 
+    <asp:Label ID="msgRetorno" runat="server" Font-Bold="True" Font-Size="Large"></asp:Label>
+
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false">
         <Columns>
             <asp:BoundField DataField="cronograma.disciplina.Nome" HeaderText="Disciplina" />

@@ -5,7 +5,10 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
 
-    [<a href=#>Novo</a>]<BR/>
+    <asp:Label ID="msgRetorno" runat="server" Font-Bold="True" Font-Size="Large"></asp:Label>
+
+    [<a href="CreateCronograma.aspx">Novo</a>]<BR/>
+
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false">
         <Columns>
             <asp:BoundField DataField="atividade.Nome" HeaderText="Atividade" />

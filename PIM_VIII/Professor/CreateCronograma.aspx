@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="EditarCronograma.aspx.cs" Inherits="PIM_VIII.Professor.EditarCronograma" %>
+﻿<%@ Page Title="Agendar uma entrega" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CreateCronograma.aspx.cs" Inherits="PIM_VIII.Professor.CreateCronograma" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
@@ -43,9 +43,9 @@
         </tr>
         <tr>
             <td style="text-align:center" colspan="2">
-                <asp:Button ID="btnEnviar" runat="server" Text="Salvar" OnClick="btnEnviar_Click" />
+                <asp:Button ID="btnEnviar" runat="server" Text="Salvar" OnClick="btnEnviar_Click"  />
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:LinkButton ID="lbtVoltar" runat="server" OnClick="lbtVoltar_Click" >Voltar</asp:LinkButton>
+                <asp:LinkButton ID="lbtVoltar" runat="server" OnClick="lbtVoltar_Click"  >Voltar</asp:LinkButton>
             </td>
         </tr>
         

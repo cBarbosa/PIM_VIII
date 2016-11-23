@@ -38,5 +38,15 @@ namespace PIM_VIII.Control
                 throw ex;
             }
         }
+
+        public List<Atividade> GetAllAtividadesProfessor()
+        {
+            return GetAllAtividades().Where(x => !x.Nome.Contains("Provas") && !x.Nome.Contains("Dependência")).ToList();
+        }
+
+        public List<Atividade> GetAllAtividadesAtendente()
+        {
+            return GetAllAtividades().Where(x => x.Nome.Contains("Provas") || x.Nome.Contains("Dependência")).ToList();
+        }
     }
 }

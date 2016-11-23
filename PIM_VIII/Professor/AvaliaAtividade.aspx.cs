@@ -15,16 +15,19 @@ namespace PIM_VIII.Professor
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!PIM_VIII.Control.LoginControl.GetPerfilUsuarioLogado(Request.Cookies["ProjetoTCC"])
-                       .Equals(PerfilAcesso.Professor))
-                Response.Redirect("~/Default.aspx", true);
+            if (!IsPostBack)
+            {
+                if (!PIM_VIII.Control.LoginControl.GetPerfilUsuarioLogado(Request.Cookies["ProjetoTCC"])
+                           .Equals(PerfilAcesso.Professor))
+                    Response.Redirect("~/Default.aspx", true);
 
-            PIM_VII.VO.Professor professor = (PIM_VII.VO.Professor)LoginControl.GetDadosAutenticados(Request.Cookies["ProjetoTCC"]);
+                PIM_VII.VO.Professor professor = (PIM_VII.VO.Professor)LoginControl.GetDadosAutenticados(Request.Cookies["ProjetoTCC"]);
 
-            int idCrono = 0;
-            int.TryParse(Request.QueryString["Id"], out idCrono);
+                int idCrono = 0;
+                int.TryParse(Request.QueryString["Id"], out idCrono);
 
-            PreencheForm(professor);
+                PreencheForm(professor);
+            }
         }
 
         private void PreencheForm(PIM_VII.VO.Professor professor)
@@ -42,7 +45,7 @@ namespace PIM_VIII.Professor
                     dtFim.Text = envio.cronograma.DataFim.ToShortDateString();
                     dtEnvio.Text = envio.DataEnvio.ToShortDateString();
                     dtCorrecao.Text = envio.DataCorrecao.Equals(DateTime.MinValue) ? "N/D" : envio.DataCorrecao.ToShortDateString();
-                    TextBox1.Text = envio.nota == -1 ? "" : String.Format("{0}", envio.nota);
+                    txtNota.Text = envio.nota == -1 ? String.Empty : envio.nota.ToString();
                     txtobs.Text = String.IsNullOrEmpty(envio.ObsProfessor) ? "" : envio.ObsProfessor;
                     txtobs.Text = envio.ObsAluno;
             }
@@ -56,6 +59,9 @@ namespace PIM_VIII.Professor
 
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
+            int nota = 0;
+            int.TryParse(txtNota.Text, out nota);
+
             PIM_VII.VO.Professor professor = (PIM_VII.VO.Professor)LoginControl.GetDadosAutenticados(Request.Cookies["ProjetoTCC"]);
 
             int idEnvio = 0;
@@ -63,7 +69,7 @@ namespace PIM_VIII.Professor
 
             try
             {
-                new EnvioControl().EnviarAtividadeByProfessor(idEnvio, professor, int.Parse(TextBox1.Text), txtObsProf.Text);
+                new EnvioControl().EnviarAtividadeByProfessor(idEnvio, professor, nota, txtObsProf.Text);
 
                 msgRetorno.Text = "Atividade corrigida com sucesso.";
                 msgRetorno.ForeColor = System.Drawing.Color.Green;

@@ -4,6 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+
     <asp:Label ID="msgRetorno" runat="server" Font-Bold="True" Font-Size="Large"></asp:Label>
 
     <table>
@@ -31,9 +32,9 @@
         </tr>
         <tr>
             <td>
-                <asp:Label ID="Label3" runat="server" Text="Nota"></asp:Label>
+                <strong>Nota</strong>
                 <br />
-                <asp:TextBox ID="TextBox1" runat="server" MaxLength="2"></asp:TextBox>
+                <asp:TextBox ID="txtNota" runat="server" TextMode="Number" MaxLength="2" AutoPostBack="false" EnableViewState="false" />
             </td>
         </tr>
         <tr>

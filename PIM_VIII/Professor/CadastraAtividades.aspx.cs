@@ -15,21 +15,42 @@ namespace PIM_VIII.Professor
         {
             if (!IsPostBack)
             {
-                BindGridView();
+                if (!PIM_VIII.Control.LoginControl.GetPerfilUsuarioLogado(Request.Cookies["ProjetoTCC"])
+                       .Equals(PerfilAcesso.Professor))
+                    Response.Redirect("~/Default.aspx", true);
+
+                PIM_VII.VO.Professor professor = (PIM_VII.VO.Professor)LoginControl.GetDadosAutenticados(Request.Cookies["ProjetoTCC"]);
+
+                BindGridView(professor);
             }
         }
 
-        private void BindGridView()
+        private void BindGridView(PIM_VII.VO.Professor professor)
         {
             try
             {
-                List<Cronograma> cronogramas = new CronogramaControl().GetAllCronogramas();
-                GridView1.DataSource = cronogramas;
-                GridView1.DataBind();
+                try
+                {
+                    List<Cronograma> cronogramas = new CronogramaControl().GetAllCronogramaByProfessor(professor);
+                    GridView1.DataSource = cronogramas;
+                    GridView1.DataBind();
+
+                    if (cronogramas == null)
+                    {
+                        msgRetorno.Text = "A pesquisa não retornou registros.";
+                        msgRetorno.ForeColor = System.Drawing.Color.Gray;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    msgRetorno.Text = ex.Message;
+                    msgRetorno.ForeColor = System.Drawing.Color.Red;
+                }
             }
             catch (Exception ex)
             {
-                throw ex;
+                msgRetorno.Text = ex.Message;
+                msgRetorno.ForeColor = System.Drawing.Color.Red;
             }
         }
     }

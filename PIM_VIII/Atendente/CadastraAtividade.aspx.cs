@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PIM_VII.VO;
+using PIM_VIII.Control;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,24 @@ namespace PIM_VIII.Atendente
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                BindGridView();
+            }
+        }
 
+        private void BindGridView()
+        {
+            try
+            {
+                List<Cronograma> cronogramas = new CronogramaControl().GetAllCronogramas();
+                GridView1.DataSource = cronogramas;
+                GridView1.DataBind();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

@@ -13,28 +13,31 @@ namespace PIM_VIII
     public partial class CadastrarDisciplina : System.Web.UI.Page
     {
         DataSet DsAtividades;
+        DataSet DsCursos;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                ddlCurso.DataSource = PIM_VIII.Control.ctlcurso.GetAllDataSetCurso();
-                ddlCurso.DataTextField = "Curso";
-                ddlCurso.DataValueField = "ID_CURSO";
-                ddlCurso.DataBind();
-
                 try
                 {
+                    DsCursos = PIM_VIII.Control.ctlcurso.GetAllDataSetCurso();
+                    ddlCurso.DataSource = DsCursos;
+                    ddlCurso.DataTextField = "Curso";
+                    ddlCurso.DataValueField = "ID_CURSO";
+                    ddlCurso.DataBind();
+
                     DsAtividades = AtividadeControl.GetAllDataSetAtividade();
+                    ddlAtividade.DataSource = DsAtividades;
+                    ddlAtividade.DataTextField = "Atividade";
+                    ddlAtividade.DataValueField = "ID_ATIVIDADE";
+                    ddlAtividade.DataBind();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    
+                    msgRetorno.Text = ex.Message;
+                    msgRetorno.ForeColor = System.Drawing.Color.Red;
                 }
 
-                ddlAtividade.DataSource = AtividadeControl.GetAllDataSetAtividade();
-                ddlAtividade.DataTextField = "Atividade";
-                ddlAtividade.DataValueField = "ID_ATIVIDADE";
-                ddlAtividade.DataBind();
             }
         }
 
