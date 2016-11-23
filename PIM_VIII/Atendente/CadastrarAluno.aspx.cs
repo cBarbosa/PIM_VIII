@@ -27,7 +27,7 @@ namespace PIM_VIII.Atendente
         {
             try
             {
-                List<Aluno> alunos = new AtendenteControl().GetAllAlunos();
+                List<PIM_VII.VO.Aluno> alunos = new AtendenteControl().GetAllAlunos();
                 GridView1.DataSource = alunos;
                 GridView1.DataBind();
             }

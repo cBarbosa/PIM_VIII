@@ -1,0 +1,22 @@
+﻿using PIM_VII.VO;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PIM_VII.VO
+{
+    [Serializable]
+    public class Envio
+    {
+        public int Id { get; set; }
+        public float nota { get; set; }
+        public DateTime DataEnvio { get; set; }
+        public DateTime DataCorrecao { get; set; }
+        public string ObsAluno { get; set; }
+        public string ObsProfessor { get; set; }
+        public Cronograma cronograma{ get; set; }
+        public Aluno aluno { get; set; }
+    }
+}

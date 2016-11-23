@@ -48,9 +48,11 @@ namespace PIM_VIII
 
                 disciplina.Nome = nome;
                 disciplina.curso = new Curso { Id = idCurso };
+                /*
                 disciplina.atividade = new Atividade { Id = idAtividade };
 
                 ctlDisciplina.InsertDisciplina(disciplina);
+                */
         }
     }
 }

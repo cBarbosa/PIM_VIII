@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PIM_VIII.Professor {
+namespace PIM_VIII.Aluno {
     
     
-    public partial class VisualizaEntregas {
+    public partial class CadastraAtividade {
         
         /// <summary>
         /// GridView1 control.

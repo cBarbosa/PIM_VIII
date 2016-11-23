@@ -11,11 +11,12 @@ namespace PIM_VIII.Professor
 {
     public partial class EditarCronograma : System.Web.UI.Page
     {
+        int id;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                int id = 0;
+                id = 0;
                 int.TryParse(Request.QueryString["Id"], out id);
 
                 if (id > 0)
@@ -33,7 +34,8 @@ namespace PIM_VIII.Professor
             dpCurso.DataValueField = "ID";
             dpCurso.DataBind();
 
-            dpDisciplina.DataSource = new DisciplinaControl().GetAllDisciplinasByIdCurso(cronograma.disciplina.curso.Id);
+            dpDisciplina.DataSource = new DisciplinaControl()
+                .GetAllDisciplinasByIdCurso(cronograma.disciplina.curso.Id);
             dpDisciplina.DataTextField = "Nome";
             dpDisciplina.DataValueField = "ID";
             dpDisciplina.DataBind();
@@ -44,9 +46,38 @@ namespace PIM_VIII.Professor
             dpAtividade.DataBind();
 
             dpCurso.SelectedValue = cronograma.disciplina.curso.Id.ToString();
+            dpDisciplina.SelectedValue = cronograma.disciplina.Id.ToString();
             dpAtividade.SelectedValue = cronograma.atividade.Id.ToString();
             txtDtInicio.Text = cronograma.DataInicio.ToShortDateString();
             txtDtFim.Text = cronograma.DataFim.ToShortDateString();
+        }
+
+        protected void dpCurso_TextChanged(object sender, EventArgs e)
+        {
+            if (dpCurso.SelectedIndex != -1)
+            {
+                dpDisciplina.DataSource = new DisciplinaControl()
+                    .GetAllDisciplinasByIdCurso(int.Parse(dpCurso.SelectedValue));
+                dpDisciplina.DataTextField = "Nome";
+                dpDisciplina.DataValueField = "ID";
+                dpDisciplina.DataBind();
+            }
+        }
+
+        protected void lbtVoltar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Professor/CadastraAtividades.aspx", true);
+        }
+
+        protected void btnEnviar_Click(object sender, EventArgs e)
+        {
+            string[]  strDt = txtDtInicio.Text.Split('/');
+            DateTime dataInicio = new DateTime(int.Parse(strDt[2]), int.Parse(strDt[1]), int.Parse(strDt[0]));
+
+            strDt = txtDtFim.Text.Split('/');
+            DateTime dataFinal= new DateTime(int.Parse(strDt[2]), int.Parse(strDt[1]), int.Parse(strDt[0]));
+            int.TryParse(Request.QueryString["Id"], out id);
+            new CronogramaControl().UpdateCronograma(id, int.Parse(dpAtividade.SelectedValue), int.Parse(dpDisciplina.SelectedValue), dataInicio, dataFinal);
         }
     }
 }

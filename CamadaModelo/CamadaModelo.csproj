@@ -44,6 +44,7 @@
     <Compile Include="DAL\AtendenteDAL.cs" />
     <Compile Include="DAL\CronogramaDAL.cs" />
     <Compile Include="DAL\CursoDAL.cs" />
+    <Compile Include="DAL\EnvioDAL.cs" />
     <Compile Include="DAL\PessoaDAL.cs" />
     <Compile Include="DAL\ProfessorDAL.cs" />
     <Compile Include="IConnection.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="VO\Cronograma.cs" />
     <Compile Include="VO\Curso.cs" />
     <Compile Include="VO\Disciplina.cs" />
+    <Compile Include="VO\Envio.cs" />
     <Compile Include="VO\Pessoa.cs" />
     <Compile Include="VO\Professor.cs" />
   </ItemGroup>

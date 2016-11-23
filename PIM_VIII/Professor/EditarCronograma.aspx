@@ -9,7 +9,7 @@
             <td colspan="2">
                 <asp:Label ID="Label3" runat="server" Text="Curso" ></asp:Label>
                 <br/>
-                <asp:DropDownList ID="dpCurso" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="dpCurso" runat="server" AutoPostBack="True" OnTextChanged="dpCurso_TextChanged" ></asp:DropDownList>
             </td>
         </tr>
         <tr>
@@ -23,7 +23,7 @@
             <td colspan="2">
                 <asp:Label ID="Label4" runat="server" Text="Atividade" ></asp:Label>
                 <br/>
-                <asp:DropDownList ID="dpAtividade" runat="server"></asp:DropDownList>
+                <asp:DropDownList ID="dpAtividade" runat="server" AutoPostBack="True"></asp:DropDownList>
             </td>
         </tr>
         <tr>
@@ -39,9 +39,10 @@
             </td>
         </tr>
         <tr>
-            <td colspan="2">
-                <asp:Button ID="Button1" runat="server" Text="Gravar" />
-
+            <td style="text-align:center" colspan="2">
+                <asp:Button ID="btnEnviar" runat="server" Text="Salvar" OnClick="btnEnviar_Click" />
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:LinkButton ID="lbtVoltar" runat="server" OnClick="lbtVoltar_Click" >Voltar</asp:LinkButton>
             </td>
         </tr>
         

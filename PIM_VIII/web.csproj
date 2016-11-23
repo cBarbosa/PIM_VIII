@@ -128,6 +128,8 @@
     <Content Include="Account\OpenAuthProviders.ascx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
+    <Content Include="Aluno\CadastraAtividade.aspx" />
+    <Content Include="Aluno\EnviarAtividade.aspx" />
     <Content Include="App_Data\dbPIM_VIII.accdb" />
     <Content Include="Atendente\CadastraAtividade.aspx" />
     <Content Include="Atendente\CadastrarAluno.aspx" />
@@ -208,6 +210,8 @@
     <Content Include="Professor\EditarCronograma.aspx" />
     <Content Include="Professor\VisualizaEntregas.aspx" />
     <Content Include="WebFormEnviar.aspx" />
+    <None Include="Properties\PublishProfiles\Internet.pubxml" />
+    <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Scripts\jquery-1.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -243,6 +247,20 @@
     <Content Include="Bundle.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aluno\CadastraAtividade.aspx.cs">
+      <DependentUpon>CadastraAtividade.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Aluno\CadastraAtividade.aspx.designer.cs">
+      <DependentUpon>CadastraAtividade.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Aluno\EnviarAtividade.aspx.cs">
+      <DependentUpon>EnviarAtividade.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Aluno\EnviarAtividade.aspx.designer.cs">
+      <DependentUpon>EnviarAtividade.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="About.aspx.cs">

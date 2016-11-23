@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data;
 using System.Data.OleDb;
 using PIM_VII.VO;
+using System.Linq;
 
 namespace PIM_VIII.Model
 {

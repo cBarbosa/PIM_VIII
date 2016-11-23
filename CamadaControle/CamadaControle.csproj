@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="AtendenteControl.cs" />
     <Compile Include="CronogramaControl.cs" />
+    <Compile Include="EnvioControl.cs" />
     <Compile Include="LoginControl.cs" />
     <Compile Include="AtividadeControl.cs" />
     <Compile Include="ctlcurso.cs" />

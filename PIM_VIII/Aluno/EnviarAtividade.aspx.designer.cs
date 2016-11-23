@@ -7,82 +7,82 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PIM_VIII.Professor {
+namespace PIM_VIII.Aluno {
     
     
-    public partial class EditarCronograma {
+    public partial class EnviarAtividade {
         
         /// <summary>
-        /// Label3 control.
+        /// msgRetorno control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label msgRetorno;
         
         /// <summary>
-        /// dpCurso control.
+        /// lblCurso control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dpCurso;
+        protected global::System.Web.UI.WebControls.Label lblCurso;
         
         /// <summary>
-        /// Label5 control.
+        /// lblDisciplina control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
+        protected global::System.Web.UI.WebControls.Label lblDisciplina;
         
         /// <summary>
-        /// dpDisciplina control.
+        /// dtInicio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dpDisciplina;
+        protected global::System.Web.UI.WebControls.Label dtInicio;
         
         /// <summary>
-        /// Label4 control.
+        /// dtFim control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.Label dtFim;
         
         /// <summary>
-        /// dpAtividade control.
+        /// dtEnvio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dpAtividade;
+        protected global::System.Web.UI.WebControls.Label dtEnvio;
         
         /// <summary>
-        /// Label1 control.
+        /// dtCorrecao control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label dtCorrecao;
         
         /// <summary>
-        /// txtDtInicio control.
+        /// txtNota control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDtInicio;
+        protected global::System.Web.UI.WebControls.Label txtNota;
         
         /// <summary>
         /// Label2 control.
@@ -94,13 +94,49 @@ namespace PIM_VIII.Professor {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// txtDtFim control.
+        /// txtObsProf control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDtFim;
+        protected global::System.Web.UI.WebControls.TextBox txtObsProf;
+        
+        /// <summary>
+        /// lblObs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblObs;
+        
+        /// <summary>
+        /// txtobs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtobs;
+        
+        /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
+        /// FileUpload1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
         
         /// <summary>
         /// btnEnviar control.

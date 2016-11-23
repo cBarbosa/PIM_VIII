@@ -19,5 +19,37 @@ namespace PIM_VIII.Control
         {
             return new CronogramaDAL().GetById(id);
         }
+
+        public void UpdateCronograma(int _id, int _atividade, int _disciplina, DateTime dataInicio, DateTime dataFinal)
+        {
+            var crono = new Cronograma()
+            {
+                Id = _id,
+                atividade = new Atividade()
+                {
+                    Id = _atividade
+                },
+                disciplina = new Disciplina()
+                {
+                    Id = _disciplina
+                },
+                DataInicio = dataInicio,
+                DataFim = dataFinal
+            };
+
+            new CronogramaDAL().Atualiza(crono);
+        }
+
+        public List<Cronograma> GetAllAtividadesByAluno(Aluno aluno)
+        {
+            try
+            {
+                return new CronogramaDAL().GetAllAtividadesByIdCurso(aluno.CursoMatriculado.Id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

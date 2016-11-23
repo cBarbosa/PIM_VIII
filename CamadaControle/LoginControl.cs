@@ -93,7 +93,7 @@ namespace PIM_VIII.Control
             return retorno;
         }
 
-        private static Pessoa GetDadosAutenticados(HttpCookie httpCookie)
+        public static Pessoa GetDadosAutenticados(HttpCookie httpCookie)
         {
             HttpCookie cookie = httpCookie;
             Pessoa usuario = null;
