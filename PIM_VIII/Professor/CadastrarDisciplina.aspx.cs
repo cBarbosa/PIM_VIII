@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using PIM_VII.VO;
+using PIM_VIII.VO;
 using PIM_VIII.Control;
 
 namespace PIM_VIII

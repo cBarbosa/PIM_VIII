@@ -26,7 +26,7 @@ namespace PIM_VIII.Atendente
         {
             try
             {
-                List<PIM_VII.VO.Professor> professores = new ProfessorControl().GetAllProfessores();
+                List<PIM_VIII.VO.Professor> professores = new ProfessorControl().GetAllProfessores();
                 GridView1.DataSource = professores;
                 GridView1.DataBind();
             }

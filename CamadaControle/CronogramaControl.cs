@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PIM_VII.VO;
+using PIM_VIII.VO;
 using PIM_VIII.Model;
 
 namespace PIM_VIII.Control

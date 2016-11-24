@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PIM_VII.VO;
+using PIM_VIII.VO;
 using System.Data.OleDb;
 using System.Configuration;
 using System.Data;
 
 namespace PIM_VIII.Model
 {
-    public class EnvioDAL : IConnection<PIM_VII.VO.Envio>
+    public class EnvioDAL : IConnection<PIM_VIII.VO.Envio>
     {
         const string _TABLE = "tbl_cadastro_envio";
         const string _SELECT_ALL = @"SELECT tbl_cronograma.ID_CRONOGRAMA,

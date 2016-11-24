@@ -1,4 +1,4 @@
-﻿using PIM_VII.VO;
+﻿using PIM_VIII.VO;
 using PIM_VIII.Control;
 using System;
 using System.Collections.Generic;
@@ -27,7 +27,7 @@ namespace PIM_VIII.Atendente
         {
             try
             {
-                List<PIM_VII.VO.Aluno> alunos = new AlunoControl().GetAllAlunos();
+                List<PIM_VIII.VO.Aluno> alunos = new AlunoControl().GetAllAlunos();
                 GridView1.DataSource = alunos;
                 GridView1.DataBind();
             }

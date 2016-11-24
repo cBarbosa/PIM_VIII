@@ -19,7 +19,7 @@ namespace PIM_VIII.Aluno
                        .Equals(PerfilAcesso.Aluno))
                     Response.Redirect("~/Default.aspx", true);
 
-                PIM_VII.VO.Aluno aluno = (PIM_VII.VO.Aluno)LoginControl.GetDadosAutenticados(Request.Cookies["ProjetoTCC"]);
+                PIM_VIII.VO.Aluno aluno = (PIM_VIII.VO.Aluno)LoginControl.GetDadosAutenticados(Request.Cookies["ProjetoTCC"]);
                 var cronograma = new CronogramaControl().GetAllAtividadesByAluno(aluno);
 
                 GridView1.DataSource = cronograma;

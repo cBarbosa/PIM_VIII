@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace PIM_VII.VO
+namespace PIM_VIII.VO
 {
     [Serializable]
     public abstract class Pessoa

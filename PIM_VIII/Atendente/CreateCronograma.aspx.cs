@@ -1,11 +1,11 @@
 ﻿using PIM_VIII.Control;
+using PIM_VIII.VO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using PIM_VII.VO;
 
 namespace PIM_VIII.Atendente
 {

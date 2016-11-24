@@ -1,4 +1,4 @@
-﻿using PIM_VII.VO;
+﻿using PIM_VIII.VO;
 using PIM_VIII.Control;
 using System;
 using System.Collections.Generic;
@@ -19,13 +19,13 @@ namespace PIM_VIII.Professor
                        .Equals(PerfilAcesso.Professor))
                     Response.Redirect("~/Default.aspx", true);
 
-                PIM_VII.VO.Professor professor = (PIM_VII.VO.Professor)LoginControl.GetDadosAutenticados(Request.Cookies["ProjetoTCC"]);
+                PIM_VIII.VO.Professor professor = (PIM_VIII.VO.Professor)LoginControl.GetDadosAutenticados(Request.Cookies["ProjetoTCC"]);
 
                 BindGridView(professor);
             }
         }
 
-        private void BindGridView(PIM_VII.VO.Professor professor)
+        private void BindGridView(PIM_VIII.VO.Professor professor)
         {
             try
             {

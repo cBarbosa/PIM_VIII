@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.OleDb;
-using PIM_VII.VO;
+using PIM_VIII.VO;
 using System.Linq;
 
 namespace PIM_VIII.Model
 {
-    public class AtividadeDAL : IConnection<PIM_VII.VO.Atividade>
+    public class AtividadeDAL : IConnection<PIM_VIII.VO.Atividade>
     {
         const string _TABLE = "tbl_atividades";
         const string _SELECT_ALL = @"SELECT ID_ATIVIDADE, ATIVIDADE

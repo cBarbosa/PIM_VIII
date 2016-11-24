@@ -19,7 +19,7 @@ namespace PIM_VIII.Professor
                     Response.Redirect("~/Default.aspx", true);
                 try
                 {
-                    PIM_VII.VO.Professor professor = (PIM_VII.VO.Professor)LoginControl.GetDadosAutenticados(Request.Cookies["ProjetoTCC"]);
+                    PIM_VIII.VO.Professor professor = (PIM_VIII.VO.Professor)LoginControl.GetDadosAutenticados(Request.Cookies["ProjetoTCC"]);
 
                     BindData(professor);
                 }
@@ -31,7 +31,7 @@ namespace PIM_VIII.Professor
             }
         }
 
-        private void BindData(PIM_VII.VO.Professor professor)
+        private void BindData(PIM_VIII.VO.Professor professor)
         {
             try
             {

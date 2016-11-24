@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using PIM_VII.VO;
+using PIM_VIII.VO;
 using System.Data.OleDb;
 using System.Data;
 using System.Configuration;
 
 namespace PIM_VIII.Model
 {
-    public class ProfessorDAL : IConnection<PIM_VII.VO.Professor>
+    public class ProfessorDAL : IConnection<PIM_VIII.VO.Professor>
     {
         const string _TABLE = "tbl_usuario";
         const string _SELECT_MATRICULA = @"SELECT MATRICULA, NOME, SENHA, CPF, RG, DATANASCIMENTO, tbl_disciplinas.ID_DISCIPLINA

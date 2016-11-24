@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace PIM_VII.VO
+namespace PIM_VIII.VO
 {
     [Serializable]
     public class Disciplina

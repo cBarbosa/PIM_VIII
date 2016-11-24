@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using PIM_VII.VO;
+using PIM_VIII.VO;
 using System.Data.OleDb;
 using System.Configuration;
 using System.Data;
@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace PIM_VIII.Model
 {
-    public class CronogramaDAL : IConnection<PIM_VII.VO.Cronograma>
+    public class CronogramaDAL : IConnection<PIM_VIII.VO.Cronograma>
     {
         const string _TABLE = "tbl_cronograma";
         const string _SELECT_ALL = @"SELECT tbl_cronograma.ID_CRONOGRAMA,

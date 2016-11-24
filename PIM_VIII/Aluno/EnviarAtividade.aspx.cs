@@ -1,4 +1,4 @@
-﻿using PIM_VII.VO;
+﻿using PIM_VIII.VO;
 using PIM_VIII.Control;
 using System;
 using System.Collections.Generic;
@@ -21,7 +21,7 @@ namespace PIM_VIII.Aluno
                        .Equals(PerfilAcesso.Aluno))
                     Response.Redirect("~/Default.aspx", true);
 
-                PIM_VII.VO.Aluno aluno = (PIM_VII.VO.Aluno)LoginControl.GetDadosAutenticados(Request.Cookies["ProjetoTCC"]);
+                PIM_VIII.VO.Aluno aluno = (PIM_VIII.VO.Aluno)LoginControl.GetDadosAutenticados(Request.Cookies["ProjetoTCC"]);
 
                 int idCrono = 0;
                 int.TryParse(Request.QueryString["Id"], out idCrono);
@@ -30,7 +30,7 @@ namespace PIM_VIII.Aluno
             }
         }
 
-        private void PreencheForm(PIM_VII.VO.Aluno aluno)
+        private void PreencheForm(PIM_VIII.VO.Aluno aluno)
         {
             int idCrono = 0;
             int.TryParse(Request.QueryString["Id"], out idCrono);
@@ -59,7 +59,7 @@ namespace PIM_VIII.Aluno
             }
         }
 
-        private void PreencherFormWithCronograma(PIM_VII.VO.Aluno aluno)
+        private void PreencherFormWithCronograma(PIM_VIII.VO.Aluno aluno)
         {
             var crono = new CronogramaControl().getCronogramaById(aluno.CursoMatriculado.Id);
             lblCurso.Text = crono.disciplina.curso.Nome;
@@ -70,7 +70,7 @@ namespace PIM_VIII.Aluno
 
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
-            PIM_VII.VO.Aluno aluno = (PIM_VII.VO.Aluno)LoginControl.GetDadosAutenticados(Request.Cookies["ProjetoTCC"]);
+            PIM_VIII.VO.Aluno aluno = (PIM_VIII.VO.Aluno)LoginControl.GetDadosAutenticados(Request.Cookies["ProjetoTCC"]);
 
             int idCrono = 0;
             int.TryParse(Request.QueryString["Id"], out idCrono);

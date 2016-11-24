@@ -1,11 +1,10 @@
-﻿using PIM_VII.VO;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PIM_VII.VO
+namespace PIM_VIII.VO
 {
     [Serializable]
     public class Envio

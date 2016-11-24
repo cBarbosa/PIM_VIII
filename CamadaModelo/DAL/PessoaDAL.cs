@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using PIM_VII.VO;
+using PIM_VIII.VO;
 using System.Data.OleDb;
 using System.Configuration;
 using System.Data;
 
 namespace PIM_VIII.Model
 {
-    public class PessoaDAL : IConnection<PIM_VII.VO.Pessoa>
+    public class PessoaDAL : IConnection<PIM_VIII.VO.Pessoa>
     {
         const string _TABLE = "tbl_usuario";
         const string _UPDATE_CPF = @"UPDATE tbl_usuario

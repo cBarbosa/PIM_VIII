@@ -6,11 +6,11 @@ using System.Data.OleDb;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PIM_VII.VO;
+using PIM_VIII.VO;
 
 namespace PIM_VIII.Model
 {
-    public class DisciplinaDAL : IConnection<PIM_VII.VO.Disciplina>
+    public class DisciplinaDAL : IConnection<PIM_VIII.VO.Disciplina>
     {
         const string _TABLE = "tbl_disciplinas";
         const string _SELECT_ALL = @"SELECT ID_DISCIPLINA, DISCIPLINA, tbl_curso.ID_CURSO, tbl_curso.CURSO

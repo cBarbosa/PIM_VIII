@@ -1,4 +1,4 @@
-﻿using PIM_VII.VO;
+﻿using PIM_VIII.VO;
 using PIM_VIII.Control;
 using System;
 using System.Collections.Generic;
@@ -21,7 +21,7 @@ namespace PIM_VIII.Professor
                            .Equals(PerfilAcesso.Professor))
                     Response.Redirect("~/Default.aspx", true);
 
-                PIM_VII.VO.Professor professor = (PIM_VII.VO.Professor)LoginControl.GetDadosAutenticados(Request.Cookies["ProjetoTCC"]);
+                PIM_VIII.VO.Professor professor = (PIM_VIII.VO.Professor)LoginControl.GetDadosAutenticados(Request.Cookies["ProjetoTCC"]);
 
                 int idCrono = 0;
                 int.TryParse(Request.QueryString["Id"], out idCrono);
@@ -30,7 +30,7 @@ namespace PIM_VIII.Professor
             }
         }
 
-        private void PreencheForm(PIM_VII.VO.Professor professor)
+        private void PreencheForm(PIM_VIII.VO.Professor professor)
         {
             try
             {
@@ -62,7 +62,7 @@ namespace PIM_VIII.Professor
             int nota = 0;
             int.TryParse(txtNota.Text, out nota);
 
-            PIM_VII.VO.Professor professor = (PIM_VII.VO.Professor)LoginControl.GetDadosAutenticados(Request.Cookies["ProjetoTCC"]);
+            PIM_VIII.VO.Professor professor = (PIM_VIII.VO.Professor)LoginControl.GetDadosAutenticados(Request.Cookies["ProjetoTCC"]);
 
             int idEnvio = 0;
             int.TryParse(Request.QueryString["Id"], out idEnvio);

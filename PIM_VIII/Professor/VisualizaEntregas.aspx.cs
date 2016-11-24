@@ -23,7 +23,7 @@ namespace PIM_VIII.Professor
                 int.TryParse(Request.QueryString["Id"], out id);
                 try
                 {
-                    PIM_VII.VO.Professor professor = (PIM_VII.VO.Professor)LoginControl.GetDadosAutenticados(Request.Cookies["ProjetoTCC"]);
+                    PIM_VIII.VO.Professor professor = (PIM_VIII.VO.Professor)LoginControl.GetDadosAutenticados(Request.Cookies["ProjetoTCC"]);
 
                     var envios = new EnvioControl().GetAllEnviosByIdCronogramaProfessor(id, professor);
 

@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PIM_VII.VO;
+using PIM_VIII.VO;
 using System.Data.OleDb;
 using System.Configuration;
 using System.Data;
 
 namespace PIM_VIII.Model
 {
-    public class CursoDAL : IConnection<PIM_VII.VO.Curso>
+    public class CursoDAL : IConnection<PIM_VIII.VO.Curso>
     {
         const string _TABLE = "tbl_curso";
         const string _SELECT_ALL = @"SELECT ID_CURSO, CURSO
