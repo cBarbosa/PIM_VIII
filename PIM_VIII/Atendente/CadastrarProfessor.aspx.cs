@@ -1,5 +1,4 @@
-﻿using PIM_VII.VO;
-using PIM_VIII.Control;
+﻿using PIM_VIII.Control;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace PIM_VIII.Atendente
 {
-    public partial class CadastrarAluno : System.Web.UI.Page
+    public partial class CadastrarProfessor : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,8 +26,8 @@ namespace PIM_VIII.Atendente
         {
             try
             {
-                List<PIM_VII.VO.Aluno> alunos = new AlunoControl().GetAllAlunos();
-                GridView1.DataSource = alunos;
+                List<PIM_VII.VO.Professor> professores = new ProfessorControl().GetAllProfessores();
+                GridView1.DataSource = professores;
                 GridView1.DataBind();
             }
             catch (Exception ex)
@@ -37,24 +36,24 @@ namespace PIM_VIII.Atendente
             }
         }
 
-        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
-        {
-            GridView1.EditIndex = e.NewEditIndex; // turn to edit mode
-            BindGridView(); // Rebind GridView to show the data in edit mode
-        }
-
         protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             GridView1.EditIndex = -1; //swicth back to default mode
             BindGridView(); // Rebind GridView to show the data in default mode
         }
 
+        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
+        {
+            GridView1.EditIndex = e.NewEditIndex; // turn to edit mode
+            BindGridView(); // Rebind GridView to show the data in edit mode
+        }
+
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             var splitStr = ((TextBox)GridView1.Rows[e.RowIndex].Cells[4].Controls[0].FindControl("TextBox5")).Text.Split('/');
             var dataNasc = new DateTime(int.Parse(splitStr[2]), int.Parse(splitStr[1]), int.Parse(splitStr[0]));
-            
-            new AlunoControl().AtualizarAluno(((TextBox)GridView1.Rows[e.RowIndex].Cells[0].Controls[0].FindControl("TextBox1")).Text, ((TextBox)GridView1.Rows[e.RowIndex].Cells[1].Controls[0].FindControl("TextBox2")).Text, double.Parse(((TextBox)GridView1.Rows[e.RowIndex].Cells[2].Controls[0].FindControl("TextBox3")).Text), int.Parse(((TextBox)GridView1.Rows[e.RowIndex].Cells[3].Controls[0].FindControl("TextBox4")).Text), dataNasc, int.Parse(((DropDownList)GridView1.Rows[e.RowIndex].Cells[4].FindControl("drpCurso")).SelectedItem.Value.ToString()));
+
+            new ProfessorControl().AtualizarProfessor(((TextBox)GridView1.Rows[e.RowIndex].Cells[0].Controls[0].FindControl("TextBox1")).Text, ((TextBox)GridView1.Rows[e.RowIndex].Cells[1].Controls[0].FindControl("TextBox2")).Text, double.Parse(((TextBox)GridView1.Rows[e.RowIndex].Cells[2].Controls[0].FindControl("TextBox3")).Text), int.Parse(((TextBox)GridView1.Rows[e.RowIndex].Cells[3].Controls[0].FindControl("TextBox4")).Text), dataNasc, int.Parse(((DropDownList)GridView1.Rows[e.RowIndex].Cells[4].FindControl("drpDisciplina")).SelectedItem.Value.ToString()));
 
             GridView1.EditIndex = -1;
             BindGridView(); // Rebind GridView to reflect changes made
@@ -69,7 +68,7 @@ namespace PIM_VIII.Atendente
 
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            
+
         }
     }
 }

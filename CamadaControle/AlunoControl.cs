@@ -5,7 +5,7 @@ using PIM_VIII.Model;
 
 namespace PIM_VIII.Control
 {
-    public class AtendenteControl
+    public class AlunoControl
     {
         public List<Aluno> GetAllAlunos()
         {
@@ -45,11 +45,6 @@ namespace PIM_VIII.Control
                 }
             };
             new AlunoDAL().Insere(aluno);
-        }
-
-        public List<Curso> GetAllCursos()
-        {
-            return new CursoDAL().GetAll();
         }
     }
 }

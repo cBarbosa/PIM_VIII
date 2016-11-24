@@ -54,7 +54,7 @@
                             <p>
                                 Olá, <a runat="server" class="username" href="#" title="Gerenciar acesso">
                                     <asp:LoginName runat="server" CssClass="username" /></a>!
-                                <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Sair" LogoutPageUrl="~/" />
+                                <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Sair" LogoutPageUrl="~/Account/Login.aspx" />
                             </p>
                         </LoggedInTemplate>
                     </asp:LoginView>
@@ -68,16 +68,16 @@
                             %>
                             <% if (PIM_VIII.Control.LoginControl.GetPerfilUsuarioLogado(Request.Cookies["ProjetoTCC"]).Equals(PIM_VIII.Control.PerfilAcesso.Atendente)) { %>
                                 <li><a runat="server" href="~/Atendente/CadastrarAluno.aspx">Alunos</a></li>
+                                <li><a runat="server" href="~/Atendente/CadastrarProfessor.aspx">Professores</a></li>
                                 <li><a runat="server" href="~/Atendente/CadastraAtividade.aspx">Atividades</a></li>
                             <%} %>
 
                             <% if (PIM_VIII.Control.LoginControl.GetPerfilUsuarioLogado(Request.Cookies["ProjetoTCC"]).Equals(PIM_VIII.Control.PerfilAcesso.Professor)) { %>
                                 <li><a runat="server" href="~/Professor/CadastraAtividades.aspx">Atividades</a></li>
-                                <!--<li><a runat="server" href="~/Professor/LancaAtividade.aspx">Atividades</a></li>-->
                             <%} %>
 
                             <% if (PIM_VIII.Control.LoginControl.GetPerfilUsuarioLogado(Request.Cookies["ProjetoTCC"]).Equals(PIM_VIII.Control.PerfilAcesso.Aluno)) { %>
-                                <li><a runat="server" href="~/Aluno/CadastraAtividade.aspx">Tarefas</a></li>
+                                <li><a runat="server" href="~/Aluno/CadastraAtividade.aspx">Atividades</a></li>
                             <%} %>
                             <li><a runat="server" href="~/About.aspx">Sobre</a></li>
                         <%} %>

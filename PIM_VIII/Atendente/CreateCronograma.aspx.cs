@@ -34,7 +34,7 @@ namespace PIM_VIII.Atendente
         {
             try
             {
-                dpCurso.DataSource = new AtendenteControl().GetAllCursos();
+                dpCurso.DataSource = new CursoControl().GetAllCursos();
                 dpCurso.DataTextField = "Nome";
                 dpCurso.DataValueField = "ID";
                 dpCurso.DataBind();

@@ -187,17 +187,5 @@ namespace PIM_VIII.Model
         {
             throw new NotImplementedException();
         }
-
-        public List<Disciplina> GetAllByIdCurso(int id)
-        {
-            try
-            {
-                return GetAll().Where(x => x.curso.Id == id).ToList();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
     }
 }

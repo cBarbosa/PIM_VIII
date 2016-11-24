@@ -133,8 +133,10 @@
     <Content Include="App_Data\dbPIM_VIII.accdb" />
     <Content Include="Atendente\CadastraAtividade.aspx" />
     <Content Include="Atendente\CadastrarAluno.aspx" />
+    <Content Include="Atendente\CadastrarProfessor.aspx" />
     <Content Include="Atendente\CreateAluno.aspx" />
     <Content Include="Atendente\CreateCronograma.aspx" />
+    <Content Include="Atendente\CreateProfessor.aspx" />
     <Content Include="Atendente\EditarCronograma.aspx" />
     <Content Include="Professor\AvaliaAtividade.aspx" />
     <Content Include="Professor\CadastraAtividades.aspx" />
@@ -323,6 +325,13 @@
     <Compile Include="Atendente\CadastrarAluno.aspx.designer.cs">
       <DependentUpon>CadastrarAluno.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Atendente\CadastrarProfessor.aspx.cs">
+      <DependentUpon>CadastrarProfessor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Atendente\CadastrarProfessor.aspx.designer.cs">
+      <DependentUpon>CadastrarProfessor.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Atendente\CreateAluno.aspx.cs">
       <DependentUpon>CreateAluno.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -336,6 +345,13 @@
     </Compile>
     <Compile Include="Atendente\CreateCronograma.aspx.designer.cs">
       <DependentUpon>CreateCronograma.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Atendente\CreateProfessor.aspx.cs">
+      <DependentUpon>CreateProfessor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Atendente\CreateProfessor.aspx.designer.cs">
+      <DependentUpon>CreateProfessor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Atendente\EditarCronograma.aspx.cs">
       <DependentUpon>EditarCronograma.aspx</DependentUpon>

@@ -37,7 +37,7 @@ namespace PIM_VIII.Professor
 
         private void PreencheForm(Cronograma cronograma)
         {
-            dpCurso.DataSource = new AtendenteControl().GetAllCursos();
+            dpCurso.DataSource = new CursoControl().GetAllCursos();
             dpCurso.DataTextField = "Nome";
             dpCurso.DataValueField = "ID";
             dpCurso.DataBind();

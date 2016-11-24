@@ -15,7 +15,7 @@ namespace PIM_VIII.Atendente
         {
             if (!IsPostBack)
             {
-                dpCurso.DataSource = new AtendenteControl().GetAllCursos();
+                dpCurso.DataSource = new CursoControl().GetAllCursos();
                 dpCurso.DataTextField = "Nome";
                 dpCurso.DataValueField = "ID";
                 dpCurso.DataBind();
@@ -36,7 +36,7 @@ namespace PIM_VIII.Atendente
                 dts = txtDataNascimento.Text.Split('/');
             try
             {
-                new AtendenteControl().InsereAluno(txtNome.Text, txtMatricula.Text, double.Parse(txtCPF.Text), int.Parse(txtRG.Text), new DateTime(int.Parse(dts[2]), int.Parse(dts[1]), int.Parse(dts[0])), int.Parse(dpCurso.SelectedValue));
+                new AlunoControl().InsereAluno(txtNome.Text, txtMatricula.Text, double.Parse(txtCPF.Text), int.Parse(txtRG.Text), new DateTime(int.Parse(dts[2]), int.Parse(dts[1]), int.Parse(dts[0])), int.Parse(dpCurso.SelectedValue));
                 msgRetorno.Text = "Aluno cadastrado com sucesso.";
                 msgRetorno.ForeColor = System.Drawing.Color.Green;
             }

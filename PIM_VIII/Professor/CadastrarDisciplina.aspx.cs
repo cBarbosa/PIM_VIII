@@ -20,7 +20,7 @@ namespace PIM_VIII
             {
                 try
                 {
-                    DsCursos = PIM_VIII.Control.ctlcurso.GetAllDataSetCurso();
+                    DsCursos = CursoControl.GetAllDataSetCurso();
                     ddlCurso.DataSource = DsCursos;
                     ddlCurso.DataTextField = "Curso";
                     ddlCurso.DataValueField = "ID_CURSO";

@@ -42,13 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AtendenteControl.cs" />
+    <Compile Include="AlunoControl.cs" />
     <Compile Include="CronogramaControl.cs" />
     <Compile Include="EnvioControl.cs" />
     <Compile Include="LoginControl.cs" />
     <Compile Include="AtividadeControl.cs" />
-    <Compile Include="ctlcurso.cs" />
+    <Compile Include="CursoControl.cs" />
     <Compile Include="DisciplinaControl.cs" />
+    <Compile Include="ProfessorControl.cs" />
     <Compile Include="Properties\ctlAutenticarLogin.cs" />
   </ItemGroup>
   <ItemGroup>

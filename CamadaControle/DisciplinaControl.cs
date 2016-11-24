@@ -22,7 +22,24 @@ namespace PIM_VIII.Control
 
         public object GetAllDisciplinasByIdCurso(int id)
         {
-            return new DisciplinaDAL().GetAllByIdCurso(id);
+            return GetAllByIdCurso(id);
+        }
+
+        public List<Disciplina> GetAllDisciplinas()
+        {
+            return new DisciplinaDAL().GetAll();
+        }
+
+        public List<Disciplina> GetAllByIdCurso(int id)
+        {
+            try
+            {
+                return GetAllDisciplinas().Where(x => x.curso.Id == id).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
