@@ -123,5 +123,11 @@ namespace PIM_VIII.Control
                 return String.Empty;
             }
         }
+
+        public Envio GetEnvioByIdCronogramaMatriculaAluno(int id, string matricula)
+        {
+            return new EnvioDAL().GetAll().Where(x => x.cronograma.Id == id)
+                .Where(x => x.aluno.Matricula == matricula).FirstOrDefault();
+        }
     }
 }

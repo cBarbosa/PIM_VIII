@@ -25,6 +25,7 @@ namespace PIM_VIII.Model
                                 WHERE [Código] = ?";
         const string _UPDATE_ANEXO = @"UPDATE tbl_cadastro_envio SET ID_ANEXO = ?
                                 WHERE [Código] = ?";
+        const string _IDENTITY = "Select @@Identity";
 
         private static OleDbConnection GetDBConnection()
         {
@@ -146,6 +147,8 @@ namespace PIM_VIII.Model
                         cmd.Parameters.AddWithValue("DATA_ENVIO", envio.DataEnvio.ToShortDateString());
                         cmd.Parameters.AddWithValue("OBSERVACAO_ALUNO", envio.ObsAluno);
                         conexao.Open();
+                        cmd.ExecuteNonQuery();
+                        cmd.CommandText = _IDENTITY;
                         return (int)cmd.ExecuteScalar();
                     }
                 }

@@ -30,10 +30,7 @@ namespace PIM_VIII.Professor
                     GridView1.DataSource = envios;
                     GridView1.DataBind();
                 }
-                catch (Exception ex)
-                {
-
-                }
+                catch (Exception) {}
             }
         }
     }

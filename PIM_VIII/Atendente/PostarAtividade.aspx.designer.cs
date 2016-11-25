@@ -10,7 +10,7 @@
 namespace PIM_VIII.Atendente {
     
     
-    public partial class EditarCronograma {
+    public partial class PostarAtividade {
         
         /// <summary>
         /// msgRetorno control.
@@ -22,58 +22,49 @@ namespace PIM_VIII.Atendente {
         protected global::System.Web.UI.WebControls.Label msgRetorno;
         
         /// <summary>
-        /// Label3 control.
+        /// pnBuscaAluno control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Panel pnBuscaAluno;
         
         /// <summary>
-        /// dpCurso control.
+        /// lblCurso control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dpCurso;
+        protected global::System.Web.UI.WebControls.Label lblCurso;
         
         /// <summary>
-        /// Label5 control.
+        /// lblDisciplina control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
+        protected global::System.Web.UI.WebControls.Label lblDisciplina;
         
         /// <summary>
-        /// dpDisciplina control.
+        /// dtInicio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dpDisciplina;
+        protected global::System.Web.UI.WebControls.Label dtInicio;
         
         /// <summary>
-        /// Label4 control.
+        /// dtFim control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
-        
-        /// <summary>
-        /// dpAtividade control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dpAtividade;
+        protected global::System.Web.UI.WebControls.Label dtFim;
         
         /// <summary>
         /// Label1 control.
@@ -85,13 +76,40 @@ namespace PIM_VIII.Atendente {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
-        /// txtDtInicio control.
+        /// dpAluno control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDtInicio;
+        protected global::System.Web.UI.WebControls.DropDownList dpAluno;
+        
+        /// <summary>
+        /// pnPostagem control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnPostagem;
+        
+        /// <summary>
+        /// lblObs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblObs;
+        
+        /// <summary>
+        /// txtobs control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtobs;
         
         /// <summary>
         /// Label2 control.
@@ -103,13 +121,13 @@ namespace PIM_VIII.Atendente {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// txtDtFim control.
+        /// FileUpload1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDtFim;
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
         
         /// <summary>
         /// btnEnviar control.
@@ -121,15 +139,6 @@ namespace PIM_VIII.Atendente {
         protected global::System.Web.UI.WebControls.Button btnEnviar;
         
         /// <summary>
-        /// btnPostar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPostar;
-        
-        /// <summary>
         /// lbtVoltar control.
         /// </summary>
         /// <remarks>
@@ -137,5 +146,14 @@ namespace PIM_VIII.Atendente {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton lbtVoltar;
+        
+        /// <summary>
+        /// LinkButton1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
     }
 }

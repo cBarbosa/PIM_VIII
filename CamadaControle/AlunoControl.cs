@@ -51,5 +51,10 @@ namespace PIM_VIII.Control
         {
             new AlunoDAL().ExcluiByMatricula(matricula);
         }
+
+        public Aluno GetAlunoByMatricula(string matricula)
+        {
+            return new AlunoDAL().GetByMatricula(matricula);
+        }
     }
 }

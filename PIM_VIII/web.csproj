@@ -138,6 +138,7 @@
     <Content Include="Atendente\CreateCronograma.aspx" />
     <Content Include="Atendente\CreateProfessor.aspx" />
     <Content Include="Atendente\EditarCronograma.aspx" />
+    <Content Include="Atendente\PostarAtividade.aspx" />
     <Content Include="Images\link-unip1.jpg" />
     <Content Include="Professor\AvaliaAtividade.aspx" />
     <Content Include="Professor\CadastraAtividades.aspx" />
@@ -360,6 +361,13 @@
     </Compile>
     <Compile Include="Atendente\EditarCronograma.aspx.designer.cs">
       <DependentUpon>EditarCronograma.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Atendente\PostarAtividade.aspx.cs">
+      <DependentUpon>PostarAtividade.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Atendente\PostarAtividade.aspx.designer.cs">
+      <DependentUpon>PostarAtividade.aspx</DependentUpon>
     </Compile>
     <Compile Include="Professor\AvaliaAtividade.aspx.cs">
       <DependentUpon>AvaliaAtividade.aspx</DependentUpon>

@@ -47,6 +47,8 @@
             <td style="text-align:center" colspan="2">
                 <asp:Button ID="btnEnviar" runat="server" Text="Atualizar" OnClick="btnEnviar_Click" />
                 &nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Button ID="btnPostar" runat="server" Text="Postar" OnClick="btnPostar_Click" />
+                &nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:LinkButton ID="lbtVoltar" runat="server" OnClick="lbtVoltar_Click" >Voltar</asp:LinkButton>
             </td>
         </tr>

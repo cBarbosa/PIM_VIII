@@ -50,6 +50,7 @@ namespace PIM_VIII.Atendente
             txtDtInicio.Enabled = false;
             txtDtFim.Enabled = false;
             btnEnviar.Visible = false;
+            btnPostar.Visible = false;
         }
 
         private void PreencheForm(Cronograma cronograma)
@@ -117,6 +118,12 @@ namespace PIM_VIII.Atendente
                 msgRetorno.ForeColor = System.Drawing.Color.Red;
                 throw ex;
             }
+        }
+
+        protected void btnPostar_Click(object sender, EventArgs e)
+        {
+            int.TryParse(Request.QueryString["Id"], out id);
+            Response.Redirect("~/Atendente/PostarAtividade.aspx?Id="+ id, true);
         }
     }
 }
