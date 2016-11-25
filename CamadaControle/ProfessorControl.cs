@@ -48,5 +48,10 @@ namespace PIM_VIII.Control
             };
             new ProfessorDAL().Insere(professor);
         }
+
+        public void ExcluiProfessor(string matricula)
+        {
+            new ProfessorDAL().ExcluiByMatricula(matricula);
+        }
     }
 }

@@ -138,6 +138,7 @@
     <Content Include="Atendente\CreateCronograma.aspx" />
     <Content Include="Atendente\CreateProfessor.aspx" />
     <Content Include="Atendente\EditarCronograma.aspx" />
+    <Content Include="Images\link-unip1.jpg" />
     <Content Include="Professor\AvaliaAtividade.aspx" />
     <Content Include="Professor\CadastraAtividades.aspx" />
     <Content Include="Professor\CadastrarDisciplina.aspx" />

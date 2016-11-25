@@ -1,9 +1,9 @@
-﻿<%@ Page Title="Log in" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="PIM_VIII.Account.Login" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="PIM_VIII.Account.Login" %>
 <%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <hgroup class="title">
-        <h1><%: Title %>.</h1>
+        <h1><%: Title %></h1>
     </hgroup>
     <section id="loginForm">
         <h2>Use a matrícula para fazer o login.</h2>
@@ -13,7 +13,7 @@
                     <asp:Literal runat="server" ID="FailureText" />
                 </p>
                 <fieldset>
-                    <legend>Log in Form</legend>
+                    <legend>Entrada</legend>
                     <ol>
                         <li>
                             <asp:Label runat="server" AssociatedControlID="UserName">Matrícula</asp:Label>

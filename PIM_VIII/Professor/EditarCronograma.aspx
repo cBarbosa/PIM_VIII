@@ -4,7 +4,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-
+    <h1>Cadastro da atividade</h1>
+    <hr />
     <asp:Label ID="msgRetorno" runat="server" Font-Bold="True" Font-Size="Large"></asp:Label>
 
     <table>
@@ -33,17 +34,17 @@
             <td>
                 <asp:Label ID="Label1" runat="server" Text="Data Inicio" ></asp:Label>
                 <br/>
-                <asp:TextBox ID="txtDtInicio" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtDtInicio" runat="server" MaxLength="10" TextMode="Date"></asp:TextBox>
             </td>
             <td>
                 <asp:Label ID="Label2" runat="server" Text="Data Fim" ></asp:Label>
                 <br/>
-                <asp:TextBox ID="txtDtFim" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txtDtFim" runat="server" MaxLength="10" TextMode="Date"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td style="text-align:center" colspan="2">
-                <asp:Button ID="btnEnviar" runat="server" Text="Salvar" OnClick="btnEnviar_Click" />
+                <asp:Button ID="btnEnviar" runat="server" Text="Atualizar" OnClick="btnEnviar_Click" />
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:LinkButton ID="lbtVoltar" runat="server" OnClick="lbtVoltar_Click" >Voltar</asp:LinkButton>
             </td>

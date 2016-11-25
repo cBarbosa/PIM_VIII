@@ -76,13 +76,7 @@ namespace PIM_VIII.Professor
         {
             try
             {
-                string[] strDt = txtDtInicio.Text.Split('/');
-                DateTime dataInicio = new DateTime(int.Parse(strDt[2]), int.Parse(strDt[1]), int.Parse(strDt[0]));
-
-                strDt = txtDtFim.Text.Split('/');
-                DateTime dataFinal = new DateTime(int.Parse(strDt[2]), int.Parse(strDt[1]), int.Parse(strDt[0]));
-                
-                new CronogramaControl().InsereCronograma(int.Parse(dpAtividade.SelectedValue), int.Parse(dpDisciplina.SelectedValue), dataInicio, dataFinal);
+                new CronogramaControl().InsereCronograma(int.Parse(dpAtividade.SelectedValue), int.Parse(dpDisciplina.SelectedValue), Utils.GetDateByStrDate(txtDtInicio.Text), Utils.GetDateByStrDate(txtDtFim.Text));
 
                 msgRetorno.Text = "Atividade inserida com sucesso.";
                 msgRetorno.ForeColor = System.Drawing.Color.Green;

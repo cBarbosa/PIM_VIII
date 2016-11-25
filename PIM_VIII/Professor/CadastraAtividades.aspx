@@ -4,7 +4,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-
+    <h1>Cronograma das atividades</h1>
+    <hr />
     <asp:Label ID="msgRetorno" runat="server" Font-Bold="True" Font-Size="Large"></asp:Label>
 
     [<a href="CreateCronograma.aspx">Novo</a>]<BR/>

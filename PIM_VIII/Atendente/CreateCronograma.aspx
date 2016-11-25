@@ -43,7 +43,7 @@
         </tr>
         <tr>
             <td style="text-align:center" colspan="2">
-                <asp:Button ID="btnEnviar" runat="server" Text="Salvar" OnClick="btnEnviar_Click"  />
+                <asp:Button ID="btnEnviar" runat="server" Text="Atualizar" OnClick="btnEnviar_Click"  />
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:LinkButton ID="lbtVoltar" runat="server" OnClick="lbtVoltar_Click"  >Voltar</asp:LinkButton>
             </td>

@@ -4,7 +4,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-
+    <h1>Lista das entregas</h1>
+    <hr />
     <asp:Label ID="msgRetorno" runat="server" Font-Bold="True" Font-Size="Large"></asp:Label>
 
     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false">

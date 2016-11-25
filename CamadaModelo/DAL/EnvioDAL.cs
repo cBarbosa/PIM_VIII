@@ -14,10 +14,10 @@ namespace PIM_VIII.Model
     public class EnvioDAL : IConnection<PIM_VIII.VO.Envio>
     {
         const string _TABLE = "tbl_cadastro_envio";
-        const string _SELECT_ALL = @"SELECT tbl_cronograma.ID_CRONOGRAMA,
-                                tbl_usuario.MATRICULA,
+        const string _SELECT_ALL = @"SELECT tbl_cadastro_envio.ID_CRONOGRAMA,
+                                tbl_cadastro_envio.MATRICULA,
                                 tbl_cadastro_envio.[Código], tbl_cadastro_envio.DATA_ENVIO, tbl_cadastro_envio.DATA_CORRECAO, tbl_cadastro_envio.OBSERVACAO_ALUNO, tbl_cadastro_envio.OBSERVACAO_PROFESSOR, tbl_cadastro_envio.NOTA
-                                FROM tbl_usuario RIGHT JOIN (tbl_curso INNER JOIN (tbl_disciplinas INNER JOIN (tbl_atividades INNER JOIN (tbl_cronograma LEFT JOIN tbl_cadastro_envio ON tbl_cronograma.ID_CRONOGRAMA = tbl_cadastro_envio.ID_CRONOGRAMA) ON tbl_atividades.ID_ATIVIDADE = tbl_cronograma.ID_ATIVIDADE) ON tbl_disciplinas.ID_DISCIPLINA = tbl_cronograma.ID_DISCIPLINA) ON tbl_curso.ID_CURSO = tbl_disciplinas.ID_CURSO) ON tbl_usuario.MATRICULA = tbl_cadastro_envio.MATRICULA
+                                FROM tbl_cadastro_envio
                                 ORDER BY tbl_cadastro_envio.DATA_ENVIO DESC";
         const string _INSERT_ALUNO = @"INSERT INTO tbl_cadastro_envio (ID_CRONOGRAMA, MATRICULA, DATA_ENVIO, OBSERVACAO_ALUNO)
                                 VALUES(?, ?, ?, ?)";

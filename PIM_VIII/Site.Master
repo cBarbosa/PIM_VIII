@@ -35,10 +35,11 @@
         </Scripts>
     </asp:ScriptManager>
     <header>
+        
         <div class="content-wrapper">
             <div class="float-left">
                 <p class="site-title">
-                    <a runat="server" href="~/"> <img src="/Images/logo.png" /> </a>
+                    <a runat="server" href="~/"> <img src="/Images/link-unip1.jpg" /></a>
                 </p>
             </div>
             <div class="float-right">
@@ -58,14 +59,15 @@
                             </p>
                         </LoggedInTemplate>
                     </asp:LoginView>
+                    <h1>Análise e Desenvolvimento de Sistemas PIM - VIII</h1>
                 </section>
                 <nav>
                     <ul id="menu">
-                        <li><a runat="server" href="~/">Home</a></li>
                         <%
                             if (Request.IsAuthenticated)
                             {
                             %>
+                            <li><a runat="server" href="~/">Home</a></li>
                             <% if (PIM_VIII.Control.LoginControl.GetPerfilUsuarioLogado(Request.Cookies["ProjetoTCC"]).Equals(PIM_VIII.Control.PerfilAcesso.Atendente)) { %>
                                 <li><a runat="server" href="~/Atendente/CadastrarAluno.aspx">Alunos</a></li>
                                 <li><a runat="server" href="~/Atendente/CadastrarProfessor.aspx">Professores</a></li>
@@ -79,7 +81,7 @@
                             <% if (PIM_VIII.Control.LoginControl.GetPerfilUsuarioLogado(Request.Cookies["ProjetoTCC"]).Equals(PIM_VIII.Control.PerfilAcesso.Aluno)) { %>
                                 <li><a runat="server" href="~/Aluno/CadastraAtividade.aspx">Atividades</a></li>
                             <%} %>
-                            <li><a runat="server" href="~/About.aspx">Sobre</a></li>
+                            <!--<li><a runat="server" href="~/About.aspx">Sobre</a></li>-->
                         <%} %>
                     </ul>
                 </nav>
@@ -95,7 +97,7 @@
     <footer>
         <div class="content-wrapper">
             <div class="float-left">
-                <p>&copy; <%: DateTime.Now.Year %> - PIM VIII</p>
+                <p>&copy; <%: DateTime.Now.Year %> - RA – 1508383  e  RA -  1519106</p>
             </div>
         </div>
     </footer>

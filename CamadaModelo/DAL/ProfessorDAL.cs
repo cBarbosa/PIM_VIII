@@ -10,18 +10,17 @@ namespace PIM_VIII.Model
     public class ProfessorDAL : IConnection<PIM_VIII.VO.Professor>
     {
         const string _TABLE = "tbl_usuario";
-        const string _SELECT_MATRICULA = @"SELECT MATRICULA, NOME, SENHA, CPF, RG, DATANASCIMENTO, tbl_disciplinas.ID_DISCIPLINA
+        const string _SELECT_MATRICULA = @"SELECT MATRICULA, NOME, SENHA, CPF, RG, DATANASCIMENTO, ID_DISCIPLINA
                                     FROM tbl_usuario
-                                    INNER JOIN tbl_disciplinas ON tbl_usuario.ID_DISCIPLINA = tbl_disciplinas.ID_DISCIPLINA
                                     WHERE MATRICULA = ? AND PERFIL = '2'";
-        const string _SELECT_ALL = @"SELECT MATRICULA, NOME, SENHA, CPF, RG, DATANASCIMENTO, tbl_disciplinas.ID_DISCIPLINA
+        const string _SELECT_ALL = @"SELECT MATRICULA, NOME, SENHA, CPF, RG, DATANASCIMENTO, ID_DISCIPLINA
                                     FROM tbl_usuario
-                                    INNER JOIN tbl_disciplinas ON tbl_usuario.ID_DISCIPLINA = tbl_disciplinas.ID_DISCIPLINA
                                     WHERE PERFIL = '2'";
         const string _UPDATE_MATRICULA = @"UPDATE tbl_usuario SET MATRICULA = ?, NOME =?, CPF = ?, RG = ?, DATANASCIMENTO = ?, ID_DISCIPLINA = ?
                                     WHERE MATRICULA = ? AND PERFIL = '2'";
         const string _INSERT = @"INSERT INTO tbl_usuario (MATRICULA, NOME, SENHA, CPF, RG, DATANASCIMENTO, ID_DISCIPLINA, PERFIL)
                                     VALUES(?, ?, '123456', ?, ?, ?, ?, '2')";
+        const string _DELETE_MATRICULA = @"DELETE FROM tbl_usuario WHERE MATRICULA = ? AND PERFIL = '2'";
 
         private static OleDbConnection GetDBConnection()
         {
@@ -201,6 +200,31 @@ namespace PIM_VIII.Model
             catch (Exception ex)
             {
                 throw new Exception(String.Format("Não foi possível consultar o registro na tabela '{0}'.\nErro: '{1}'", _TABLE, ex.Message));
+            }
+        }
+
+        public void ExcluiByMatricula(string matricula)
+        {
+            try
+            {
+                using (var conexao = GetDBConnection())
+                {
+                    using (OleDbCommand cmd = new OleDbCommand(_DELETE_MATRICULA, conexao))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("MATRICULA", matricula);
+                        conexao.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (OleDbException db)
+            {
+                throw new Exception(String.Format("Erro no banco de dados.\nErro: {0}", db.Message));
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(String.Format("Não foi possível excluir o registro na tabela '{0}'.\nErro: '{1}'", _TABLE, ex.Message));
             }
         }
     }

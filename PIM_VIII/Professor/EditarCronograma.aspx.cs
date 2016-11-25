@@ -56,8 +56,8 @@ namespace PIM_VIII.Professor
             dpCurso.SelectedValue = cronograma.disciplina.curso.Id.ToString();
             dpDisciplina.SelectedValue = cronograma.disciplina.Id.ToString();
             dpAtividade.SelectedValue = cronograma.atividade.Id.ToString();
-            txtDtInicio.Text = cronograma.DataInicio.ToShortDateString();
-            txtDtFim.Text = cronograma.DataFim.ToShortDateString();
+            txtDtInicio.Text = cronograma.DataInicio.ToString("yyyy-MM-dd");
+            txtDtFim.Text = cronograma.DataFim.ToString("yyyy-MM-dd");
         }
 
         protected void dpCurso_TextChanged(object sender, EventArgs e)
@@ -81,13 +81,8 @@ namespace PIM_VIII.Professor
         {
             try
             {
-                string[] strDt = txtDtInicio.Text.Split('/');
-                DateTime dataInicio = new DateTime(int.Parse(strDt[2]), int.Parse(strDt[1]), int.Parse(strDt[0]));
-
-                strDt = txtDtFim.Text.Split('/');
-                DateTime dataFinal = new DateTime(int.Parse(strDt[2]), int.Parse(strDt[1]), int.Parse(strDt[0]));
                 int.TryParse(Request.QueryString["Id"], out id);
-                new CronogramaControl().UpdateCronograma(id, int.Parse(dpAtividade.SelectedValue), int.Parse(dpDisciplina.SelectedValue), dataInicio, dataFinal);
+                new CronogramaControl().UpdateCronograma(id, int.Parse(dpAtividade.SelectedValue), int.Parse(dpDisciplina.SelectedValue), Utils.GetDateByStrDate(txtDtInicio.Text), Utils.GetDateByStrDate(txtDtFim.Text));
 
                 msgRetorno.Text = "Alterações realizadas com sucesso.";
                 msgRetorno.ForeColor = System.Drawing.Color.Green;

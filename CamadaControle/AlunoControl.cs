@@ -46,5 +46,10 @@ namespace PIM_VIII.Control
             };
             new AlunoDAL().Insere(aluno);
         }
+
+        public void ExcluiAluno(string matricula)
+        {
+            new AlunoDAL().ExcluiByMatricula(matricula);
+        }
     }
 }

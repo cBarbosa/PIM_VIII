@@ -39,14 +39,14 @@ namespace PIM_VIII.Atendente
 
         protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
         {
-            GridView1.EditIndex = e.NewEditIndex; // turn to edit mode
-            BindGridView(); // Rebind GridView to show the data in edit mode
+            GridView1.EditIndex = e.NewEditIndex;
+            BindGridView();
         }
 
         protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
-            GridView1.EditIndex = -1; //swicth back to default mode
-            BindGridView(); // Rebind GridView to show the data in default mode
+            GridView1.EditIndex = -1;
+            BindGridView();
         }
 
         protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -57,19 +57,20 @@ namespace PIM_VIII.Atendente
             new AlunoControl().AtualizarAluno(((TextBox)GridView1.Rows[e.RowIndex].Cells[0].Controls[0].FindControl("TextBox1")).Text, ((TextBox)GridView1.Rows[e.RowIndex].Cells[1].Controls[0].FindControl("TextBox2")).Text, double.Parse(((TextBox)GridView1.Rows[e.RowIndex].Cells[2].Controls[0].FindControl("TextBox3")).Text), int.Parse(((TextBox)GridView1.Rows[e.RowIndex].Cells[3].Controls[0].FindControl("TextBox4")).Text), dataNasc, int.Parse(((DropDownList)GridView1.Rows[e.RowIndex].Cells[4].FindControl("drpCurso")).SelectedItem.Value.ToString()));
 
             GridView1.EditIndex = -1;
-            BindGridView(); // Rebind GridView to reflect changes made
+            BindGridView();
         }
 
         protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            string id = GridView1.Rows[e.RowIndex].Cells[0].Text;// get the id of the selected row 
-            //DeleteRecord(id);//call delete method
-            BindGridView();//rebind grid to reflect changes made
+            string matricula = e.Values[1].ToString();
+            new AlunoControl().ExcluiAluno(matricula);
+            BindGridView();
         }
 
         protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
         {
-            
+
         }
+
     }
 }

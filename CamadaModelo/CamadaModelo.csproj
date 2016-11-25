@@ -52,6 +52,7 @@
     <Compile Include="DAL\DisciplinaDAL.cs" />
     <Compile Include="Properties\mdlAutenticarLogin.cs" />
     <Compile Include="VO\Aluno.cs" />
+    <Compile Include="VO\Anexo.cs" />
     <Compile Include="VO\Atendente.cs" />
     <Compile Include="VO\Atividade.cs" />
     <Compile Include="VO\Cronograma.cs" />

@@ -4,7 +4,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-
+    <h1>Avaliação da atividade</h1>
+    <hr />
     <asp:Label ID="msgRetorno" runat="server" Font-Bold="True" Font-Size="Large"></asp:Label>
 
     <table>
@@ -41,7 +42,7 @@
             <td>
                 <asp:Label ID="Label2" runat="server" Text="Observação do professor"></asp:Label>
                 <br />
-                <asp:TextBox ID="txtObsProf" runat="server" TextMode="MultiLine" Rows="3" ReadOnly="false" ></asp:TextBox>
+                <asp:TextBox ID="txtObsProf" runat="server" TextMode="MultiLine" Rows="3" ReadOnly="false" MaxLength="1000" ></asp:TextBox>
             </td>
         </tr>
         <tr>
@@ -60,7 +61,7 @@
         </tr>
         <tr>
             <td style="text-align:center" >
-                <asp:Button ID="btnEnviar" runat="server" Text="Enviar" OnClick="btnEnviar_Click" />
+                <asp:Button ID="btnEnviar" runat="server" Text="Atualizar" OnClick="btnEnviar_Click" />
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:LinkButton ID="lbtVoltar" runat="server" OnClick="lbtVoltar_Click" >Voltar</asp:LinkButton>
             </td>

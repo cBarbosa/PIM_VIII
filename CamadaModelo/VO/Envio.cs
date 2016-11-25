@@ -17,5 +17,6 @@ namespace PIM_VIII.VO
         public string ObsProfessor { get; set; }
         public Cronograma cronograma{ get; set; }
         public Aluno aluno { get; set; }
+        public Anexo anexo { get; set; }
     }
 }

@@ -51,6 +51,7 @@
     <Compile Include="DisciplinaControl.cs" />
     <Compile Include="ProfessorControl.cs" />
     <Compile Include="Properties\ctlAutenticarLogin.cs" />
+    <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CamadaModelo\CamadaModelo.csproj">

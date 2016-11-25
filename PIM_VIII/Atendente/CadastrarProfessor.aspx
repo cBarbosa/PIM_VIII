@@ -4,6 +4,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="FeaturedContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
+    <h1>Lista de professores</h1>
+    <hr />
 
     [<a href="CreateProfessor.aspx">Novo</a>]
     <br/>
@@ -13,6 +15,7 @@
         OnRowEditing="GridView1_RowEditing"
         OnRowUpdating="GridView1_RowUpdating"
         OnRowDataBound="GridView1_RowDataBound"
+        OnRowDeleting="GridView1_RowDeleting"
         AutoGenerateColumns="False">
         <Columns>
             <asp:TemplateField HeaderText="Nome">
@@ -79,6 +82,7 @@
                     <asp:LinkButton ID="LinkButton1" runat="server" CausesValidation="False" CommandName="Edit" Text="Editar"></asp:LinkButton>
                 </ItemTemplate>
             </asp:TemplateField>
+            <asp:CommandField HeaderText="" ShowDeleteButton="True" ShowHeader="false" />
         </Columns>
         
     </asp:GridView>

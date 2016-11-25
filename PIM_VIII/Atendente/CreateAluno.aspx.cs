@@ -39,6 +39,7 @@ namespace PIM_VIII.Atendente
                 new AlunoControl().InsereAluno(txtNome.Text, txtMatricula.Text, double.Parse(txtCPF.Text), int.Parse(txtRG.Text), new DateTime(int.Parse(dts[2]), int.Parse(dts[1]), int.Parse(dts[0])), int.Parse(dpCurso.SelectedValue));
                 msgRetorno.Text = "Aluno cadastrado com sucesso.";
                 msgRetorno.ForeColor = System.Drawing.Color.Green;
+                btnEnviar.Enabled = false;
             }
             catch (Exception ex)
             {
