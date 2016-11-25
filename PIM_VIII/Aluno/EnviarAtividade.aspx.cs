@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
 
 namespace PIM_VIII.Aluno
 {
@@ -54,7 +55,13 @@ namespace PIM_VIII.Aluno
                     btnEnviar.Visible = false;
                     msgRetorno.Text = "Atividade já corrigida.";
                     msgRetorno.ForeColor = System.Drawing.Color.Gray;
+                    Label1.Visible = false;
                     FileUpload1.Visible = false;
+                }
+                if (envio.anexo != null)
+                {
+                    lkArquivo.Visible = true;
+                    lkArquivo.ToolTip = envio.anexo.NomeArquivo;
                 }
             }
         }
@@ -93,6 +100,23 @@ namespace PIM_VIII.Aluno
         protected void lbtVoltar_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Aluno/CadastraAtividade.aspx", true);
+        }
+
+        protected void lkArquivo_Click(object sender, EventArgs e)
+        {
+            var file = new FileInfo(lkArquivo.ToolTip);
+            if (file.Exists)
+            {
+                Response.Clear();
+                Response.ClearHeaders();
+                Response.ClearContent();
+                Response.AddHeader("Content-Disposition", "attachment; filename=" + file.Name);
+                Response.AddHeader("Content-Length", file.Length.ToString());
+                Response.ContentType = "text/plain";
+                Response.Flush();
+                Response.TransmitFile(file.FullName);
+                Response.End();
+            }
         }
     }
 }

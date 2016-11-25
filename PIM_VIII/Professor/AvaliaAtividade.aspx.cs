@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
 
 namespace PIM_VIII.Professor
 {
@@ -39,15 +40,21 @@ namespace PIM_VIII.Professor
 
                 envio = new EnvioControl().GetEnvioByIdCronogramaProfessor(idCrono, professor);
 
-                    lblCurso.Text = envio.cronograma.disciplina.curso.Nome;
-                    lblDisciplina.Text = envio.cronograma.disciplina.Nome;
-                    dtInicio.Text = envio.cronograma.DataInicio.ToShortDateString();
-                    dtFim.Text = envio.cronograma.DataFim.ToShortDateString();
-                    dtEnvio.Text = envio.DataEnvio.ToShortDateString();
-                    dtCorrecao.Text = envio.DataCorrecao.Equals(DateTime.MinValue) ? "N/D" : envio.DataCorrecao.ToShortDateString();
-                    txtNota.Text = envio.nota == -1 ? String.Empty : envio.nota.ToString();
-                    txtobs.Text = String.IsNullOrEmpty(envio.ObsProfessor) ? "" : envio.ObsProfessor;
-                    txtobs.Text = envio.ObsAluno;
+                lblCurso.Text = envio.cronograma.disciplina.curso.Nome;
+                lblDisciplina.Text = envio.cronograma.disciplina.Nome;
+                dtInicio.Text = envio.cronograma.DataInicio.ToShortDateString();
+                dtFim.Text = envio.cronograma.DataFim.ToShortDateString();
+                dtEnvio.Text = envio.DataEnvio.ToShortDateString();
+                dtCorrecao.Text = envio.DataCorrecao.Equals(DateTime.MinValue) ? "N/D" : envio.DataCorrecao.ToShortDateString();
+                txtNota.Text = envio.nota == -1 ? String.Empty : envio.nota.ToString();
+                txtobs.Text = String.IsNullOrEmpty(envio.ObsProfessor) ? "" : envio.ObsProfessor;
+                txtobs.Text = envio.ObsAluno;
+
+                if (envio.anexo != null)
+                {
+                    lkArquivo.Visible = true;
+                    lkArquivo.ToolTip = envio.anexo.NomeArquivo;
+                }
             }
             catch (Exception ex)
             {
@@ -85,6 +92,23 @@ namespace PIM_VIII.Professor
         protected void lbtVoltar_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Professor/CadastraAtividades.aspx", true);
+        }
+
+        protected void lkArquivo_Click(object sender, EventArgs e)
+        {
+            var file = new FileInfo(lkArquivo.ToolTip);
+            if (file.Exists)
+            {
+                Response.Clear();
+                Response.ClearHeaders();
+                Response.ClearContent();
+                Response.AddHeader("Content-Disposition", "attachment; filename=" + file.Name);
+                Response.AddHeader("Content-Length", file.Length.ToString());
+                Response.ContentType = "text/plain";
+                Response.Flush();
+                Response.TransmitFile(file.FullName);
+                Response.End();
+            }
         }
     }
 }

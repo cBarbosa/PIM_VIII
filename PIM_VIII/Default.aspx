@@ -11,7 +11,7 @@
 
     <article>
         <h1>Sobre a Educação a Distância</h1>
-        <h2>A UNIVERSIDADE PAULIST VAI ATÉ VOCÊ</h2>
+        <h2>A UNIVERSIDADE PAULISTA VAI ATÉ VOCÊ</h2>
         <p>
             A Universidade Paulista – UNIP é  uma das maiores e mais conceituadas instituições de ensino superior do País,  e  possui  uma posição consolidada  na Educação a Distância - EaD.
             Parte de um dos mais prestigiados grupos educacionais do Brasil, o OBJETIVO, conta com a tradição e a experiência de mais de 50 anos dedicados à oferta de educação de qualidade.

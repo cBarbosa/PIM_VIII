@@ -7,6 +7,7 @@ using PIM_VIII.VO;
 using PIM_VIII.Model;
 using System.Web;
 using System.Web.UI.WebControls;
+using System.IO;
 
 namespace PIM_VIII.Control
 {
@@ -37,7 +38,25 @@ namespace PIM_VIII.Control
                 new EnvioDAL().Atualiza(_envio);
             }
             else
-                new EnvioDAL().Insere(envio);
+            {
+                _envio = envio;
+                _envio.Id = new EnvioDAL().InsereId(envio);
+            }
+
+            if(file != null)
+            {
+                try
+                {
+                    string pathFile = this.SalvarAnexo(file);
+                    if (!String.IsNullOrEmpty(pathFile))
+                    {
+                        int idAnexo = new AnexoDAL().InsereId(new Anexo { NomeArquivo = pathFile });
+                        _envio.anexo = new Anexo() { Id = idAnexo, NomeArquivo = pathFile };
+                        new EnvioDAL().AtualizaEnvioByAnexo(_envio);
+                    }
+                }
+                catch (Exception) {}
+            }
         }
 
         public List<Envio> GetAllEnviosByIdCronogramaProfessor(int idCronograma, Professor professor)
@@ -76,47 +95,33 @@ namespace PIM_VIII.Control
             }
         }
 
-        private void SaveFile(HttpPostedFile file)
+        public string SalvarAnexo(HttpPostedFile arquivo)
         {
-            // Specify the path to save the uploaded file to.
-            string savePath = "c:\\temp\\uploads\\";
-
-            // Get the name of the file to upload.
-            string fileName = file.FileName;
-
-            // Create the path and file name to check for duplicates.
-            string pathToCheck = savePath + fileName;
-
-            // Create a temporary file name to use for checking duplicates.
-            string tempfileName = "";
-
-            // Check to see if a file already exists with the
-            // same name as the file to upload.        
-            if (System.IO.File.Exists(pathToCheck))
+            try
             {
-                int counter = 2;
-                while (System.IO.File.Exists(pathToCheck))
+                string savePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "App_Data", "Arquivos");
+                string fileName = arquivo.FileName;
+                string pathToCheck = Path.Combine(savePath, fileName);
+                string tempfileName = "";
+                if (File.Exists(pathToCheck))
                 {
-                    // if a file with this name already exists,
-                    // prefix the filename with a number.
-                    tempfileName = counter.ToString() + fileName;
-                    pathToCheck = savePath + tempfileName;
-                    counter++;
+                    int counter = 2;
+                    while (File.Exists(pathToCheck))
+                    {
+                        tempfileName = counter.ToString() + fileName;
+                        pathToCheck = savePath + tempfileName;
+                        counter++;
+                    }
+                    fileName = tempfileName;
                 }
-
-                fileName = tempfileName;
-
-                throw new Exception("A file with the same name already exists." +
-                    "<br />Your file was saved as " + fileName);
+                savePath = Path.Combine(savePath, fileName);
+                arquivo.SaveAs(savePath);
+                return savePath;
             }
-
-            // Append the name of the file to upload to the path.
-            savePath += fileName;
-
-            // Call the SaveAs method to save the uploaded
-            // file to the specified directory.
-            file.SaveAs(savePath);
-
+            catch (Exception)
+            {
+                return String.Empty;
+            }
         }
     }
 }

@@ -26,7 +26,7 @@ namespace PIM_VIII.Atendente
             try
             {
                 new ProfessorControl().InsereProfessor(txtNome.Text, txtMatricula.Text, double.Parse(txtCPF.Text), int.Parse(txtRG.Text), Utils.GetDateByStrDate(txtDataNascimento.Text), int.Parse(dpDisciplina.SelectedValue));
-                msgRetorno.Text = "Professor cadastrado com sucesso.";
+                msgRetorno.Text = "Professor cadastrado com sucesso e senha gerada.";
                 msgRetorno.ForeColor = System.Drawing.Color.Green;
             }
             catch (Exception ex)

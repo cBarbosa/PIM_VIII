@@ -55,6 +55,13 @@
             </td>
         </tr>
         <tr>
+            <td style="text-align:center">
+                <asp:LinkButton ID="lkArquivo" runat="server" OnClick="lkArquivo_Click" Visible="false">[ Baixar o Arquivo ]</asp:LinkButton>
+                <br />
+                <br/>
+            </td>
+        </tr>
+        <tr>
             <td>
                 <asp:Label ID="Label1" runat="server" Text="Arquivo"></asp:Label>
                 <br />

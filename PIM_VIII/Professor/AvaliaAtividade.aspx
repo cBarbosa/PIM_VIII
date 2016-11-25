@@ -53,10 +53,10 @@
             </td>
         </tr>
         <tr>
-            <td>
-                <asp:Label ID="Label1" runat="server" Text="Arquivo"></asp:Label>
+            <td style="text-align:center">
+                <asp:LinkButton ID="lkArquivo" runat="server" OnClick="lkArquivo_Click" Visible="false">[ Baixar o Arquivo ]</asp:LinkButton>
                 <br />
-                [xxxxx]
+                <br/>
             </td>
         </tr>
         <tr>

@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\AlunoDAL.cs" />
+    <Compile Include="DAL\AnexoDAL.cs" />
     <Compile Include="DAL\AtendenteDAL.cs" />
     <Compile Include="DAL\CronogramaDAL.cs" />
     <Compile Include="DAL\CursoDAL.cs" />

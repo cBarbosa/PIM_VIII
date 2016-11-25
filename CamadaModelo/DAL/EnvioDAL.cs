@@ -11,17 +11,19 @@ using System.Data;
 
 namespace PIM_VIII.Model
 {
-    public class EnvioDAL : IConnection<PIM_VIII.VO.Envio>
+    public class EnvioDAL : IConnection<Envio>
     {
         const string _TABLE = "tbl_cadastro_envio";
         const string _SELECT_ALL = @"SELECT tbl_cadastro_envio.ID_CRONOGRAMA,
                                 tbl_cadastro_envio.MATRICULA,
-                                tbl_cadastro_envio.[Código], tbl_cadastro_envio.DATA_ENVIO, tbl_cadastro_envio.DATA_CORRECAO, tbl_cadastro_envio.OBSERVACAO_ALUNO, tbl_cadastro_envio.OBSERVACAO_PROFESSOR, tbl_cadastro_envio.NOTA
+                                [Código], DATA_ENVIO, DATA_CORRECAO, OBSERVACAO_ALUNO, OBSERVACAO_PROFESSOR, NOTA, ID_ANEXO
                                 FROM tbl_cadastro_envio
-                                ORDER BY tbl_cadastro_envio.DATA_ENVIO DESC";
+                                ORDER BY DATA_ENVIO DESC";
         const string _INSERT_ALUNO = @"INSERT INTO tbl_cadastro_envio (ID_CRONOGRAMA, MATRICULA, DATA_ENVIO, OBSERVACAO_ALUNO)
                                 VALUES(?, ?, ?, ?)";
         const string _UPDATE = @"UPDATE tbl_cadastro_envio SET DATA_ENVIO = ?, OBSERVACAO_ALUNO = ?, DATA_CORRECAO = ?, NOTA = ?, OBSERVACAO_PROFESSOR = ?
+                                WHERE [Código] = ?";
+        const string _UPDATE_ANEXO = @"UPDATE tbl_cadastro_envio SET ID_ANEXO = ?
                                 WHERE [Código] = ?";
 
         private static OleDbConnection GetDBConnection()
@@ -103,7 +105,8 @@ namespace PIM_VIII.Model
                                         DataCorrecao = reader[4] == DBNull.Value ? DateTime.MinValue : reader.GetDateTime(4),
                                         ObsAluno = reader[5] == DBNull.Value ? String.Empty : reader.GetString(5),
                                         ObsProfessor = reader[6] == DBNull.Value ? String.Empty : reader.GetString(6),
-                                        nota = reader[7] == DBNull.Value ? -1 : reader.GetInt32(7)
+                                        nota = reader[7] == DBNull.Value ? -1 : reader.GetInt32(7),
+                                        anexo = reader[8] == DBNull.Value ? null : new AnexoDAL().GetById(reader.GetInt32(8))
                                     };
                                     result.Add(envio);
                                 }
@@ -127,6 +130,34 @@ namespace PIM_VIII.Model
         public Envio GetById(int id)
         {
             throw new NotImplementedException();
+        }
+
+        public int InsereId(Envio envio)
+        {
+            try
+            {
+                using (var conexao = GetDBConnection())
+                {
+                    using (OleDbCommand cmd = new OleDbCommand(_INSERT_ALUNO, conexao))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("ID_CRONOGRAMA", envio.cronograma.Id);
+                        cmd.Parameters.AddWithValue("MATRICULA", envio.aluno.Matricula);
+                        cmd.Parameters.AddWithValue("DATA_ENVIO", envio.DataEnvio.ToShortDateString());
+                        cmd.Parameters.AddWithValue("OBSERVACAO_ALUNO", envio.ObsAluno);
+                        conexao.Open();
+                        return (int)cmd.ExecuteScalar();
+                    }
+                }
+            }
+            catch (OleDbException db)
+            {
+                throw new Exception(String.Format("Erro no banco de dados.\nErro: {0}", db.Message));
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(String.Format("Não foi possível inserir o registro na tabela '{0}'.\nErro: '{1}'", _TABLE, ex.Message));
+            }
         }
 
         public void Insere(Envio envio)
@@ -154,6 +185,32 @@ namespace PIM_VIII.Model
             catch (Exception ex)
             {
                 throw new Exception(String.Format("Não foi possível inserir o registro na tabela '{0}'.\nErro: '{1}'", _TABLE, ex.Message));
+            }
+        }
+
+        public void AtualizaEnvioByAnexo(Envio envio)
+        {
+            try
+            {
+                using (var conexao = GetDBConnection())
+                {
+                    using (OleDbCommand cmd = new OleDbCommand(_UPDATE_ANEXO, conexao))
+                    {
+                        cmd.CommandType = CommandType.Text;
+                        cmd.Parameters.AddWithValue("ID_ANEXO", envio.anexo.Id);
+                        cmd.Parameters.AddWithValue("[Código]", envio.Id);
+                        conexao.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (OleDbException db)
+            {
+                throw new Exception(String.Format("Erro no banco de dados.\nErro: {0}", db.Message));
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(String.Format("Não foi possível atualizar o registro na tabela '{0}'.\nErro: '{1}'", _TABLE, ex.Message));
             }
         }
     }
