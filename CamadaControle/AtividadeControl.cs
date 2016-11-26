@@ -48,5 +48,20 @@ namespace PIM_VIII.Control
         {
             return GetAllAtividades().Where(x => x.Nome.Contains("Provas") || x.Nome.Contains("Dependência")).ToList();
         }
+
+        public void AtualizaAtividade(Atividade atividade)
+        {
+            new AtividadeDAL().Atualiza(atividade);
+        }
+
+        public void ExcluirAtividadeById(int id)
+        {
+            new AtividadeDAL().Exclui(id);
+        }
+
+        public void InsereAtividade(Atividade atividade)
+        {
+            new AtividadeDAL().Insere(atividade);
+        }
     }
 }

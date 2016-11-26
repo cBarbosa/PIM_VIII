@@ -144,7 +144,7 @@ namespace PIM_VIII.Model
             }
         }
 
-        public void Atualiza(Atividade obj)
+        public void Atualiza(Atividade atividade)
         {
             try
             {
@@ -153,7 +153,8 @@ namespace PIM_VIII.Model
                     using (OleDbCommand cmd = new OleDbCommand(_UPDATE_ID, conexao))
                     {
                         cmd.CommandType = CommandType.Text;
-                        cmd.Parameters.AddWithValue("ID_ATIVIDADE", obj.Id);
+                        cmd.Parameters.AddWithValue("ATIVIDADE", atividade.Nome);
+                        cmd.Parameters.AddWithValue("ID_ATIVIDADE", atividade.Id);
                         conexao.Open();
                         cmd.ExecuteNonQuery();
                     }

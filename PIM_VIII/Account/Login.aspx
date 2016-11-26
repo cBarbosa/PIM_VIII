@@ -7,7 +7,7 @@
     </hgroup>
     <section id="loginForm">
         <h2>Use a matrícula para fazer o login.</h2>
-        <asp:Login runat="server" ViewStateMode="Disabled" RenderOuterTable="false" ID="login1" DestinationPageUrl="~/Default.aspx" OnAuthenticate="login1_Authenticate" RememberMeSet="True">
+        <asp:Login runat="server" ViewStateMode="Disabled" RenderOuterTable="false" ID="login1" DestinationPageUrl="~/Default.aspx" OnAuthenticate="login1_Authenticate">
             <LayoutTemplate>
                 <p class="validation-summary-errors">
                     <asp:Literal runat="server" ID="FailureText" />
@@ -25,10 +25,12 @@
                             <asp:TextBox runat="server" ID="Password" TextMode="Password" />
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="field-validation-error" ErrorMessage="A senha é obrigatória" />
                         </li>
+                        <!--
                         <li>
                             <asp:CheckBox runat="server" ID="RememberMe" />
                             <asp:Label runat="server" AssociatedControlID="RememberMe" CssClass="checkbox">Lembrar senha?</asp:Label>
                         </li>
+                        -->
                     </ol>
                     <asp:Button runat="server" CommandName="Login" Text="Logar" />
                 </fieldset>

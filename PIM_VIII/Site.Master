@@ -72,6 +72,7 @@
                                 <li><a runat="server" href="~/Atendente/CadastrarAluno.aspx">Alunos</a></li>
                                 <li><a runat="server" href="~/Atendente/CadastrarProfessor.aspx">Professores</a></li>
                                 <li><a runat="server" href="~/Atendente/CadastraAtividade.aspx">Atividades</a></li>
+                                <li><a runat="server" href="~/Atendente/FormCadastraAtividade.aspx">Tipo Ativ</a></li>
                             <%} %>
 
                             <% if (PIM_VIII.Control.LoginControl.GetPerfilUsuarioLogado(Request.Cookies["ProjetoTCC"]).Equals(PIM_VIII.Control.PerfilAcesso.Professor)) { %>
