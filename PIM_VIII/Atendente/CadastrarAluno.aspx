@@ -27,7 +27,7 @@
         <Columns>
             <asp:TemplateField HeaderText="Nome">
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Nome") %>' Width="180px"></asp:TextBox>
+                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Nome") %>' Width="180px" onkeypress="return this.value.length<=50"></asp:TextBox>
                 </EditItemTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label1" runat="server" Text='<%# Bind("Nome") %>'></asp:Label>
@@ -45,7 +45,7 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="CPF">
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("CPF") %>' Width="80px"></asp:TextBox>
+                    <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("CPF") %>' Width="80px" onkeypress="return this.value.length<=10"></asp:TextBox>
                 </EditItemTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label3" runat="server" Text='<%# Bind("CPF") %>'></asp:Label>
@@ -54,7 +54,7 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="RG">
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("RG") %>' Width="60px"></asp:TextBox>
+                    <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("RG") %>' Width="60px" onkeypress="return this.value.length<=6"></asp:TextBox>
                 </EditItemTemplate>
                 <ItemTemplate>
                     <asp:Label ID="Label4" runat="server" Text='<%# Bind("RG") %>'></asp:Label>

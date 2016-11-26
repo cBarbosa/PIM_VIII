@@ -24,6 +24,13 @@ namespace PIM_VIII.Professor
                     if (id > 0)
                     {
                         var cronograma = new CronogramaControl().getCronogramaById(id);
+                        if (cronograma.atividade.Nome.Contains("Provas")
+                            || cronograma.atividade.Nome.Contains("Dependência"))
+                        {
+                            msgRetorno.Text = "Você não tem permissão para alterar esta atividade.";
+                            msgRetorno.ForeColor = System.Drawing.Color.Gray;
+                            DesabilitaForm();
+                        }
                         PreencheForm(cronograma);
                     }
                 }
@@ -33,6 +40,16 @@ namespace PIM_VIII.Professor
                     msgRetorno.ForeColor = System.Drawing.Color.Red;
                 }
             }
+        }
+
+        private void DesabilitaForm()
+        {
+            dpCurso.Enabled = false;
+            dpDisciplina.Enabled = false;
+            dpAtividade.Visible = false;
+            txtDtInicio.Enabled = false;
+            txtDtFim.Enabled = false;
+            btnEnviar.Visible = false;
         }
 
         private void PreencheForm(Cronograma cronograma)

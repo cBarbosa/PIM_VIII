@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
 
-    <h1>Lista de alunos</h1>
+    <h1>Lista de tipo atividades</h1>
     <hr />
     
     [<a href="CreateFormCadastroAtividade.aspx">Novo</a>]

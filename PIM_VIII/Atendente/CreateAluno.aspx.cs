@@ -29,14 +29,9 @@ namespace PIM_VIII.Atendente
 
         protected void btnEnviar_Click(object sender, EventArgs e)
         {
-            string[] dts;
-            if (String.IsNullOrEmpty(txtDataNascimento.Text))
-                dts = new string[] { "1","1","1900"};
-            else
-                dts = txtDataNascimento.Text.Split('/');
             try
             {
-                new AlunoControl().InsereAluno(txtNome.Text, txtMatricula.Text, double.Parse(txtCPF.Text), int.Parse(txtRG.Text), new DateTime(int.Parse(dts[2]), int.Parse(dts[1]), int.Parse(dts[0])), int.Parse(dpCurso.SelectedValue));
+                new AlunoControl().InsereAluno(txtNome.Text, txtMatricula.Text, double.Parse(txtCPF.Text), int.Parse(txtRG.Text), Utils.GetDateByStrDate(txtDataNascimento.Text), int.Parse(dpCurso.SelectedValue));
                 msgRetorno.Text = "Aluno Cadastrado com sucesso e senha gerada.";
                 msgRetorno.ForeColor = System.Drawing.Color.Green;
                 btnEnviar.Enabled = false;

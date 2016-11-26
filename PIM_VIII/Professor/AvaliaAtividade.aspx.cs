@@ -104,7 +104,7 @@ namespace PIM_VIII.Professor
                 Response.ClearContent();
                 Response.AddHeader("Content-Disposition", "attachment; filename=" + file.Name);
                 Response.AddHeader("Content-Length", file.Length.ToString());
-                Response.ContentType = "text/plain";
+                //Response.ContentType = "text/plain";
                 Response.Flush();
                 Response.TransmitFile(file.FullName);
                 Response.End();

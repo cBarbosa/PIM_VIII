@@ -67,8 +67,15 @@ namespace PIM_VIII.Control
 
         public Envio GetEnvioByIdCronogramaAluno(int idCronograma, Aluno aluno)
         {
-            return new EnvioDAL().GetAll().Where(x => x.aluno != null && x.aluno.Matricula == aluno.Matricula)
+            try
+            {
+                return new EnvioDAL().GetAll().Where(x => x.aluno != null && x.aluno.Matricula == aluno.Matricula)
                 .Where(x => x.cronograma.Id == idCronograma).FirstOrDefault();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public Envio GetEnvioByIdCronogramaProfessor(int IdEnvio, Professor professor)
@@ -126,8 +133,16 @@ namespace PIM_VIII.Control
 
         public Envio GetEnvioByIdCronogramaMatriculaAluno(int id, string matricula)
         {
-            return new EnvioDAL().GetAll().Where(x => x.cronograma.Id == id)
+            try
+            {
+                return new EnvioDAL().GetAll().Where(x => x.cronograma.Id == id)
                 .Where(x => x.aluno.Matricula == matricula).FirstOrDefault();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            
         }
     }
 }

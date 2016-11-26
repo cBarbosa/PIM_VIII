@@ -25,24 +25,24 @@
             <td>
                 <asp:Label ID="lblMatricula" runat="server" Text="Matrícula" ></asp:Label>
                 <br/>
-                <asp:TextBox ID="txtMatricula" runat="server" Width="120px" MaxLength="7" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="txtMatricula" runat="server" Width="120px" MaxLength="7" TextMode="Number" onkeypress="return this.value.length<=6"></asp:TextBox>
             </td>
             <td>
                 <asp:Label ID="lblDataNascimento" runat="server" Text="Data de Nascimento" ></asp:Label>
                 <br/>
-                <asp:TextBox ID="txtDataNascimento" runat="server" Width="130px" TextMode="Date" ></asp:TextBox>
+                <asp:TextBox ID="txtDataNascimento" runat="server" Width="130px" TextMode="Date"></asp:TextBox>
             </td>
         </tr>
         <tr>
             <td>
                 <asp:Label ID="lblCPF" runat="server" Text="CPF" ></asp:Label>
                 <br/>
-                <asp:TextBox ID="txtCPF" runat="server" Width="120px" MaxLength="11" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="txtCPF" runat="server" Width="120px" MaxLength="11" TextMode="Number" onkeypress="return this.value.length<=10"></asp:TextBox>
             </td>
             <td>
                 <asp:Label ID="lblRG" runat="server" Text="RG" ></asp:Label>
                 <br/>
-                <asp:TextBox ID="txtRG" runat="server" Width="120px" MaxLength="10" TextMode="Number"></asp:TextBox>
+                <asp:TextBox ID="txtRG" runat="server" Width="120px" MaxLength="10" TextMode="Number" onkeypress="return this.value.length<=6"></asp:TextBox>
             </td>
         </tr>
         <tr>
